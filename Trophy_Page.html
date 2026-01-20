@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lukas Carpenter | Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Inter:wght@300;400;500;600;700&family=Tektur:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --gold: #daa520;
+        --bg: #000;
+        --text: #e8e8e8;
+        --text-dim: #888;
+        --surface: #1a1a1a;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--bg);
+        background: linear-gradient(to bottom, #333 0%, var(--bg) 100%);
+        color: var(--text);
+        padding: 20px;
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+      }
+      h1,
+      h2 {
+        color: var(--gold);
+        font-family: "Audiowide", cursive;
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        animation: glow 2s ease-in-out infinite;
+      }
+      h2 {
+        font-size: 1.5rem;
+        position: relative;
+        left: 20px;
+      }
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        margin: 2rem;
+      }
+      header p {
+        color: var(--text-dim);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+      p {
+        margin-bottom: 1rem;
+      }
+
+      section {
+        margin-bottom: 2rem;
+      }
+      .gold {
+        color: var(--gold);
+      }
+      ul {
+        display: grid;
+        list-style: none;
+        grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+        gap: 1rem;
+      }
+      li {
+        background: var(--surface);
+        padding: 1rem;
+        text-align: center;
+        border-radius: 5px;
+        transition: transform 0.3s;
+      }
+
+      li:hover {
+        transform: translateY(-5px);
+      }
+      a {
+        display: inline-block;
+        background: var(--surface);
+        padding: 10px 20px;
+        text-decoration: none;
+        color: var(--gold);
+        border: 2px solid var(--gold);
+        border-radius: 5px;
+        transition: all 0.3s;
+      }
+      a:hover {
+        background: var(--gold);
+        color: var(--bg);
+      }
+      .contact-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+        }
+        50% {
+          text-shadow: 0 0 20px rgba(218, 165, 32, 0.8);
+        }
+      }
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+        body {
+          padding: 10px;
+        }
+        header {
+          padding: 1rem;
+          margin: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <svg width="50" height="50" viewBox="0 0 100 100">
+        <polygon points="50,5 95,50 50,95 5,50" fill="goldenrod" />
+      </svg>
+      <h1>Lukas Carpenter</h1>
+
+      <p>Web Developer</p>
+    </header>
+    <main>
+      <section>
+        <h2>About</h2>
+        <p>
+          I'm a self-taught web developer on a mission to master the craft of
+          building for the web. This portfolio isn't just a collection of
+          projects—it's a <strong class="gold">trophy</strong> representing my
+          time spent learning and every moment along the way.
+        </p>
+      </section>
+      <section>
+        <h2>Skills</h2>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Web Design</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Contact</h2>
+        <div class="contact-links">
+          <a href="mailto:lukas.carpenter@fivestargroup.com">Email Me</a>
+          <a href="https://github.com/LukasCarpenter5Star" target="_blank"
+            >Github</a
+          >
+          <a
+            href="https://www.linkedin.com/in/lukas-carpenter-475aa0296/"
+            target="_blank"
+            >LinkedIn</a
+          >
+        </div>
+      </section>
+    </main>
+    <footer><p>Lukas' Trophy site 2026</p></footer>
+    <script>
+      const siteName = "Lukas Carpenter";
+      const isAwsome = true;
+      let scrollPosition = 0;
+      console.log(siteName);
+      console.log(isAwesome);
+      console.log(scrollPosition);
+    </script>
+  </body>
+</html>
