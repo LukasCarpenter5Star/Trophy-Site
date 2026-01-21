@@ -173,23 +173,13 @@
     </main>
     <footer><p>Lukas' Trophy site 2026</p></footer>
     <script>
-      const siteName = "Lukas Carpenter";
-      const isAwsome = true;
-      let scrollPosition = 0;
-      console.log(siteName);
-      console.log(isAwesome);
-      console.log(scrollPosition);
-      scrollPosition = 100;
-      console.log(scrollPosition);
-      const skills = ["HTML", "CSS", "JavaScript", "Web Design"];
-      console.log(skills[1]);
-      const site = {
-        title: "Trophy Portfolio",
-        author: "Lukas",
-        isLive: false,
-      };
+      const heading = document.querySelector("h1");
+      const sections = document.querySelectorAll("section");
+      const skillItems = document.querySelectorAll("li");
 
-      console.log(site.author);
+      console.log("Heading:", heading);
+      console.log("Sections:", sections.length);
+      console.log("Skills:", skillItems.length);
     </script>
   </body>
 </html>
