@@ -52,6 +52,7 @@
         align-items: center;
         padding: 2rem;
         margin: 2rem;
+        transition: opacity 0.3s;
       }
       header p {
         color: var(--text-dim);
@@ -104,7 +105,12 @@
         gap: 1rem;
         justify-content: center;
       }
-
+      .red-text {
+        color: red;
+      }
+      header.scrolled {
+        opacity: 0.5;
+      }
       @keyframes glow {
         0%,
         100% {
@@ -174,16 +180,10 @@
     <footer><p>Lukas' Trophy site 2026</p></footer>
     <script>
       const heading = document.querySelector("h1");
-      let isGold = true;
+      const header = document.querySelector("header");
 
       heading.addEventListener("click", function () {
-        if (isGold) {
-          heading.style.color = "red";
-          isGold = false;
-        } else {
-          heading.style.color = "goldenrod";
-          isGold = true;
-        }
+        heading.classList.toggle("red-text");
       });
 
       window.addEventListener("scroll", function () {
@@ -191,8 +191,14 @@
         const maxScroll = document.body.scrollHeight - window.innerHeight;
         const progress = scrolled / maxScroll;
 
-        console.log(progress.toFixed(2));
+        if (progress > 0.2) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
       });
+      const footer = document.querySelector("footer p");
+      footer.textContent = "Made with JavaScript!";
     </script>
   </body>
 </html>
