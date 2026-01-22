@@ -181,6 +181,7 @@
     <script>
       const heading = document.querySelector("h1");
       const header = document.querySelector("header");
+      const main = document.querySelector("main");
 
       heading.addEventListener("click", function () {
         heading.classList.toggle("red-text");
@@ -191,14 +192,22 @@
         const maxScroll = document.body.scrollHeight - window.innerHeight;
         const progress = scrolled / maxScroll;
 
-        if (progress > 0.2) {
-          header.classList.add("scrolled");
+        // Header fades out between 0% and 30%
+        if (progress <= 0.3) {
+          header.style.opacity = 1 - progress / 0.3;
         } else {
-          header.classList.remove("scrolled");
+          header.style.opacity = 0;
+        }
+
+        // Main content fades in between 20% and 50%
+        if (progress < 0.2) {
+          main.style.opacity = 0;
+        } else if (progress <= 0.5) {
+          main.style.opacity = (progress - 0.2) / 0.3;
+        } else {
+          main.style.opacity = 1;
         }
       });
-      const footer = document.querySelector("footer p");
-      footer.textContent = "Made with JavaScript!";
     </script>
   </body>
 </html>
