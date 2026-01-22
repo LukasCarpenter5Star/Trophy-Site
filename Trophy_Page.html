@@ -174,12 +174,25 @@
     <footer><p>Lukas' Trophy site 2026</p></footer>
     <script>
       const heading = document.querySelector("h1");
-      const sections = document.querySelectorAll("section");
-      const skillItems = document.querySelectorAll("li");
+      let isGold = true;
 
-      console.log("Heading:", heading);
-      console.log("Sections:", sections.length);
-      console.log("Skills:", skillItems.length);
+      heading.addEventListener("click", function () {
+        if (isGold) {
+          heading.style.color = "red";
+          isGold = false;
+        } else {
+          heading.style.color = "goldenrod";
+          isGold = true;
+        }
+      });
+
+      window.addEventListener("scroll", function () {
+        const scrolled = window.scrollY;
+        const maxScroll = document.body.scrollHeight - window.innerHeight;
+        const progress = scrolled / maxScroll;
+
+        console.log(progress.toFixed(2));
+      });
     </script>
   </body>
 </html>
