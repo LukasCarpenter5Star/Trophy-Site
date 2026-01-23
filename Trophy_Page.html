@@ -182,30 +182,49 @@
       const heading = document.querySelector("h1");
       const header = document.querySelector("header");
       const main = document.querySelector("main");
+      const skillItems = document.querySelectorAll("li");
 
+      // Store random explosion values and initial state on each skill item
+      skillItems.forEach(function (item) {
+        item.dataset.x = (Math.random() - 0.5) * 200;
+        item.dataset.y = (Math.random() - 0.5) * 200;
+        item.dataset.rotation = (Math.random() - 0.5) * 90;
+        item.dataset.exploded = "false";
+      });
+
+      // Click listener for heading
       heading.addEventListener("click", function () {
         heading.classList.toggle("red-text");
       });
 
+      skillItems.forEach(function (item) {
+        item.addEventListener("click", function () {
+          const x = parseFloat(item.dataset.x);
+          const y = parseFloat(item.dataset.y);
+          const rotation = parseFloat(item.dataset.rotation);
+
+          if (item.dataset.exploded === "false") {
+            // Explode it
+            item.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
+            item.dataset.exploded = "true";
+          } else {
+            // Return to original position
+            item.style.transform = "translate(0px, 0px) rotate(0deg)";
+            item.dataset.exploded = "false";
+          }
+        });
+      });
+
+      // Scroll listener
       window.addEventListener("scroll", function () {
         const scrolled = window.scrollY;
         const maxScroll = document.body.scrollHeight - window.innerHeight;
         const progress = scrolled / maxScroll;
 
-        // Header fades out between 0% and 30%
         if (progress <= 0.3) {
           header.style.opacity = 1 - progress / 0.3;
         } else {
           header.style.opacity = 0;
-        }
-
-        // Main content fades in between 20% and 50%
-        if (progress < 0.2) {
-          main.style.opacity = 0;
-        } else if (progress <= 0.5) {
-          main.style.opacity = (progress - 0.2) / 0.3;
-        } else {
-          main.style.opacity = 1;
         }
       });
     </script>
