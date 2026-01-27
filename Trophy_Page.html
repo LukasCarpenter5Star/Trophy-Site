@@ -11,138 +11,4243 @@
       rel="stylesheet"
     />
     <style>
-      :root {
-        --gold: #daa520;
-        --bg: #000;
-        --text: #e8e8e8;
-        --text-dim: #888;
-        --surface: #1a1a1a;
-      }
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        background: var(--bg);
-        background: linear-gradient(to bottom, #333 0%, var(--bg) 100%);
-        color: var(--text);
-        padding: 20px;
-        font-family: "Inter", sans-serif;
-        line-height: 1.6;
-      }
-      h1,
-      h2 {
-        color: var(--gold);
-        font-family: "Audiowide", cursive;
-      }
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-        animation: glow 2s ease-in-out infinite;
-      }
-      h2 {
-        font-size: 1.5rem;
-        position: relative;
-        left: 20px;
-      }
-      header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem;
-        margin: 2rem;
-        transition: opacity 0.3s;
-      }
-      header p {
-        color: var(--text-dim);
-        text-transform: uppercase;
-        letter-spacing: 3px;
-      }
-      p {
-        margin-bottom: 1rem;
-      }
+      .scene {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(
+      ellipse at 50% 45%,
+      #333 0%,
+                      #1a1a1a 40%,
+                      #000 100%
+                    );
+                    z-index: 10;
+                    transition: opacity 0.4s;
+                  }
+                   main {
+                   position: relative;
+                   z-index: 20;
+                  }
+                  .content {
+  position: relative;
+  z-index: 20;
+  margin-top: 100vh;
+  background: var(--bg);
+}
+                  .scene.faded {
+                    opacity: 0;
+                    pointer-events: none;
+                  }
+                  .trophy-container {
+                    width: 300px;
+                    height: 400px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  }
 
-      section {
-        margin-bottom: 2rem;
-      }
-      .gold {
-        color: var(--gold);
-      }
-      ul {
-        display: grid;
-        list-style: none;
-        grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-        gap: 1rem;
-      }
-      li {
-        background: var(--surface);
-        padding: 1rem;
-        text-align: center;
-        border-radius: 5px;
-        transition: transform 0.3s;
-      }
+                  .trophy-container svg {
+                    width: 100%;
+                    height: 100%;
+                    overflow: visible;
+                  }
 
-      li:hover {
-        transform: translateY(-5px);
-      }
-      a {
-        display: inline-block;
-        background: var(--surface);
-        padding: 10px 20px;
-        text-decoration: none;
-        color: var(--gold);
-        border: 2px solid var(--gold);
-        border-radius: 5px;
-        transition: all 0.3s;
-      }
-      a:hover {
-        background: var(--gold);
-        color: var(--bg);
-      }
-      .contact-links {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-      }
-      .red-text {
-        color: red;
-      }
-      header.scrolled {
-        opacity: 0.5;
-      }
-      @keyframes glow {
-        0%,
-        100% {
-          text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
-        }
-        50% {
-          text-shadow: 0 0 20px rgba(218, 165, 32, 0.8);
-        }
-      }
-      @media (max-width: 600px) {
-        h1 {
-          font-size: 1.8rem;
-        }
-        body {
-          padding: 10px;
-        }
-        header {
-          padding: 1rem;
-          margin: 1rem;
-        }
-      }
+                  .shard {
+                    fill: var(--gold);
+                    stroke: #f4d03f;
+                    stroke-width: 0.5;
+                    transition:
+                      transform 0.1s ease-out,
+                      opacity 0.2s ease;
+                  }
+                  :root {
+                    --gold: #daa520;
+                    --bg: #000;
+                    --text: #e8e8e8;
+                    --text-dim: #888;
+                    --surface: #1a1a1a;
+                  }
+                  * {
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0;
+                  }
+                  body {
+                    background: var(--bg);
+                    background: linear-gradient(to bottom, #333 0%, var(--bg) 100%);
+                    color: var(--text);
+                    padding: 20px;
+                    font-family: "Inter", sans-serif;
+                    line-height: 1.6;
+                  }
+                  h1,
+                  h2 {
+                    color: var(--gold);
+                    font-family: "Audiowide", cursive;
+                  }
+                  h1 {
+                    font-size: 2.5rem;
+                    margin-bottom: 0.5rem;
+                    animation: glow 2s ease-in-out infinite;
+                  }
+                  h2 {
+                    font-size: 1.5rem;
+                    position: relative;
+                    left: 20px;
+                  }
+                  header {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 2rem;
+              margin: 2rem;
+              transition: opacity 0.3s;
+            }
+                  }
+                  header p {
+                    color: var(--text-dim);
+                    text-transform: uppercase;
+                    letter-spacing: 3px;
+                  }
+                  p {
+                    margin-bottom: 1rem;
+                  }
+
+                  section {
+                    margin-bottom: 2rem;
+                  }
+                  .gold {
+                    color: var(--gold);
+                  }
+                  ul {
+                    display: grid;
+                    list-style: none;
+                    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+                    gap: 1rem;
+                  }
+                  li {
+                    background: var(--surface);
+                    padding: 1rem;
+                    text-align: center;
+                    border-radius: 5px;
+                    transition: transform 0.3s;
+                  }
+
+                  li:hover {
+                    transform: translateY(-5px);
+                  }
+                  a {
+                    display: inline-block;
+                    background: var(--surface);
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    color: var(--gold);
+                    border: 2px solid var(--gold);
+                    border-radius: 5px;
+                    transition: all 0.3s;
+                  }
+                  a:hover {
+                    background: var(--gold);
+                    color: var(--bg);
+                  }
+                  .contact-links {
+                    display: flex;
+                    gap: 1rem;
+                    justify-content: center;
+                  }
+                  .red-text {
+                    color: red;
+                  }
+                  header.scrolled {
+                    opacity: 0.5;
+                  }
+                  @keyframes glow {
+                    0%,
+                    100% {
+                      text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+                    }
+                    50% {
+                      text-shadow: 0 0 20px rgba(218, 165, 32, 0.8);
+                    }
+                  }
+                  @media (max-width: 600px) {
+                    h1 {
+                      font-size: 1.8rem;
+                    }
+                    body {
+                      padding: 10px;
+                    }
+                    header {
+                      padding: 1rem;
+                      margin: 1rem;
+                    }
+                  }
     </style>
   </head>
   <body>
-    <header>
-      <svg width="50" height="50" viewBox="0 0 100 100">
-        <polygon points="50,5 95,50 50,95 5,50" fill="goldenrod" />
-      </svg>
-      <h1>Lukas Carpenter</h1>
+    <div class="scene" id="scene">
+      <div class="trophy-container" id="trophyContainer">
+              <svg
+          version="1.1"
+          id="Layer_2"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 150 150"
+          style="enable-background: new 0 0 150 150"
+          xml:space="preserve"
+        >
+          <g>
+            <g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M41.803,25.655c0.611,0,0.612-0.95,0-0.95C41.192,24.705,41.191,25.655,41.803,25.655L41.803,25.655z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M43.479,23.979c0.611,0,0.612-0.95,0-0.95C42.868,23.029,42.867,23.979,43.479,23.979L43.479,23.979z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M49.88,21.693c0.611,0,0.612-0.95,0-0.95C49.269,20.743,49.268,21.693,49.88,21.693L49.88,21.693z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M61.613,20.245c0.611,0,0.612-0.95,0-0.95C61.002,19.295,61.001,20.245,61.613,20.245L61.613,20.245z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M74.795,19.788c0.611,0,0.612-0.95,0-0.95C74.184,18.838,74.183,19.788,74.795,19.788L74.795,19.788z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M89.348,20.322c0.611,0,0.612-0.95,0-0.95C88.737,19.372,88.736,20.322,89.348,20.322L89.348,20.322z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M99.024,21.693c0.611,0,0.612-0.95,0-0.95C98.413,20.743,98.412,21.693,99.024,21.693L99.024,21.693z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M104.587,22.988c0.611,0,0.612-0.95,0-0.95C103.975,22.038,103.974,22.988,104.587,22.988L104.587,22.988z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M107.33,24.36c0.611,0,0.612-0.95,0-0.95C106.718,23.41,106.717,24.36,107.33,24.36L107.33,24.36z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M108.168,25.96c0.611,0,0.612-0.95,0-0.95C107.556,25.01,107.555,25.96,108.168,25.96L108.168,25.96z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M105.12,28.093c0.611,0,0.612-0.95,0-0.95C104.509,27.143,104.508,28.093,105.12,28.093L105.12,28.093z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M94.605,30.455c0.611,0,0.612-0.95,0-0.95C93.994,29.505,93.993,30.455,94.605,30.455L94.605,30.455z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M81.576,31.598c0.611,0,0.612-0.95,0-0.95C80.965,30.648,80.964,31.598,81.576,31.598L81.576,31.598z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M66.795,31.522c0.611,0,0.612-0.95,0-0.95C66.183,30.572,66.182,31.522,66.795,31.522L66.795,31.522z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M55.442,30.379c0.611,0,0.612-0.95,0-0.95C54.831,29.429,54.83,30.379,55.442,30.379L55.442,30.379z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M47.899,28.931c0.611,0,0.612-0.95,0-0.95C47.287,27.981,47.286,28.931,47.899,28.931L47.899,28.931z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M44.241,27.56c0.611,0,0.612-0.95,0-0.95C43.63,26.61,43.629,27.56,44.241,27.56L44.241,27.56z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M108.32,30.455c0.611,0,0.612-0.95,0-0.95C107.709,29.505,107.708,30.455,108.32,30.455L108.32,30.455z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M107.787,34.265c0.611,0,0.612-0.95,0-0.95C107.175,33.315,107.174,34.265,107.787,34.265L107.787,34.265z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M107.33,37.389c0.611,0,0.612-0.95,0-0.95C106.718,36.439,106.717,37.389,107.33,37.389L107.33,37.389z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M105.653,44.094c0.611,0,0.612-0.95,0-0.95C105.042,43.144,105.041,44.094,105.653,44.094L105.653,44.094z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M102.606,52.094c0.611,0,0.612-0.95,0-0.95C101.994,51.144,101.993,52.094,102.606,52.094L102.606,52.094z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M99.939,56.666c0.611,0,0.612-0.95,0-0.95C99.327,55.716,99.326,56.666,99.939,56.666L99.939,56.666z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M97.348,59.714c0.611,0,0.612-0.95,0-0.95C96.737,58.764,96.736,59.714,97.348,59.714L97.348,59.714z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M90.872,65.504c0.611,0,0.612-0.95,0-0.95C90.26,64.554,90.259,65.504,90.872,65.504L90.872,65.504z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M82.491,71.303c0.611,0,0.612-0.95,0-0.95C81.879,70.354,81.878,71.303,82.491,71.303L82.491,71.303z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M77.767,72.209c0.611,0,0.612-0.95,0-0.95C77.155,71.259,77.154,72.209,77.767,72.209L77.767,72.209z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M74.643,72.438c0.611,0,0.612-0.95,0-0.95C74.031,71.488,74.03,72.438,74.643,72.438L74.643,72.438z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M70.985,72.057c0.611,0,0.612-0.95,0-0.95C70.374,71.107,70.373,72.057,70.985,72.057L70.985,72.057z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M67.404,71.066c0.611,0,0.612-0.95,0-0.95C66.793,70.116,66.792,71.066,67.404,71.066L67.404,71.066z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M59.175,65.352c0.611,0,0.612-0.95,0-0.95C58.564,64.402,58.563,65.352,59.175,65.352L59.175,65.352z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M53.08,59.866c0.611,0,0.612-0.95,0-0.95C52.469,58.916,52.468,59.866,53.08,59.866L53.08,59.866z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M50.185,56.666c0.611,0,0.612-0.95,0-0.95C49.573,55.716,49.572,56.666,50.185,56.666L50.185,56.666z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M46.146,48.589c0.611,0,0.612-0.95,0-0.95C45.535,47.639,45.534,48.589,46.146,48.589L46.146,48.589z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M43.022,38.303c0.611,0,0.612-0.95,0-0.95C42.411,37.353,42.41,38.303,43.022,38.303L43.022,38.303z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M42.413,34.265c0.611,0,0.612-0.95,0-0.95C41.801,33.315,41.8,34.265,42.413,34.265L42.413,34.265z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M112.206,33.275c0.611,0,0.612-0.95,0-0.95C111.595,32.325,111.594,33.275,112.206,33.275L112.206,33.275z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M113.882,31.217c0.611,0,0.612-0.95,0-0.95C113.271,30.267,113.27,31.217,113.882,31.217L113.882,31.217z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M114.187,28.322c0.611,0,0.612-0.95,0-0.95C113.576,27.372,113.575,28.322,114.187,28.322L114.187,28.322z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M113.12,24.131c0.611,0,0.612-0.95,0-0.95C112.509,23.181,112.508,24.131,113.12,24.131L113.12,24.131z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M113.882,19.941c0.611,0,0.612-0.95,0-0.95C113.271,18.991,113.27,19.941,113.882,19.941L113.882,19.941z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M117.616,15.674c0.611,0,0.612-0.95,0-0.95C117.004,14.724,117.003,15.674,117.616,15.674L117.616,15.674z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M123.406,13.845c0.611,0,0.612-0.95,0-0.95C122.795,12.895,122.794,13.845,123.406,13.845L123.406,13.845z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M129.654,15.598c0.611,0,0.612-0.95,0-0.95C129.043,14.648,129.042,15.598,129.654,15.598L129.654,15.598z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M132.854,20.55c0.611,0,0.612-0.95,0-0.95C132.243,19.6,132.242,20.55,132.854,20.55L132.854,20.55z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M133.311,28.322c0.611,0,0.612-0.95,0-0.95C132.7,27.372,132.699,28.322,133.311,28.322L133.311,28.322z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M130.111,38.837c0.611,0,0.612-0.95,0-0.95C129.5,37.887,129.499,38.837,130.111,38.837L130.111,38.837z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M124.244,46.685c0.611,0,0.612-0.95,0-0.95C123.633,45.735,123.632,46.685,124.244,46.685L124.244,46.685z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M116.473,51.866c0.611,0,0.612-0.95,0-0.95C115.861,50.916,115.86,51.866,116.473,51.866L116.473,51.866z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M111.139,54.913c0.611,0,0.612-0.95,0-0.95C110.528,53.963,110.527,54.913,111.139,54.913L111.139,54.913z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M108.168,57.732c0.611,0,0.612-0.95,0-0.95C107.556,56.783,107.555,57.732,108.168,57.732L108.168,57.732z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M102.986,59.256c0.611,0,0.612-0.95,0-0.95C102.375,58.306,102.374,59.256,102.986,59.256L102.986,59.256z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M104.51,56.59c0.611,0,0.612-0.95,0-0.95C103.899,55.64,103.898,56.59,104.51,56.59L104.51,56.59z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M107.33,54.913c0.611,0,0.612-0.95,0-0.95C106.718,53.963,106.717,54.913,107.33,54.913L107.33,54.913z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M112.053,50.494c0.611,0,0.612-0.95,0-0.95C111.442,49.544,111.441,50.494,112.053,50.494L112.053,50.494z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M121.349,43.789c0.611,0,0.612-0.95,0-0.95C120.738,42.839,120.737,43.789,121.349,43.789L121.349,43.789z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M126.073,37.16c0.611,0,0.612-0.95,0-0.95C125.462,36.21,125.461,37.16,126.073,37.16L126.073,37.16z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M127.597,30.989c0.611,0,0.612-0.95,0-0.95C126.986,30.039,126.985,30.989,127.597,30.989L127.597,30.989z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M126.454,26.112c0.611,0,0.612-0.95,0-0.95C125.843,25.162,125.842,26.112,126.454,26.112L126.454,26.112z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M123.787,23.979c0.611,0,0.612-0.95,0-0.95C123.176,23.029,123.175,23.979,123.787,23.979L123.787,23.979z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M120.511,24.207c0.611,0,0.612-0.95,0-0.95C119.9,23.257,119.899,24.207,120.511,24.207L120.511,24.207z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M117.92,26.112c0.611,0,0.612-0.95,0-0.95C117.309,25.162,117.308,26.112,117.92,26.112L117.92,26.112z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M117.159,29.389c0.611,0,0.612-0.95,0-0.95C116.547,28.439,116.546,29.389,117.159,29.389L117.159,29.389z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M118.682,34.798c0.611,0,0.612-0.95,0-0.95C118.071,33.848,118.07,34.798,118.682,34.798L118.682,34.798z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M113.12,36.398c0.611,0,0.612-0.95,0-0.95C112.509,35.448,112.508,36.398,113.12,36.398L113.12,36.398z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M37.232,36.551c0.611,0,0.612-0.95,0-0.95C36.62,35.601,36.619,36.551,37.232,36.551L37.232,36.551z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M31.746,35.713c0.611,0,0.612-0.95,0-0.95C31.134,34.763,31.133,35.713,31.746,35.713L31.746,35.713z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M32.508,31.293c0.611,0,0.612-0.95,0-0.95C31.896,30.343,31.895,31.293,32.508,31.293L32.508,31.293z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M32.812,27.179c0.611,0,0.612-0.95,0-0.95C32.201,26.229,32.2,27.179,32.812,27.179L32.812,27.179z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M30.374,24.207c0.611,0,0.612-0.95,0-0.95C29.763,23.257,29.762,24.207,30.374,24.207L30.374,24.207z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M26.184,24.131c0.611,0,0.612-0.95,0-0.95C25.572,23.181,25.571,24.131,26.184,24.131L26.184,24.131z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M23.441,26.265c0.611,0,0.612-0.95,0-0.95C22.829,25.315,22.828,26.265,23.441,26.265L23.441,26.265z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M22.526,30.379c0.611,0,0.612-0.95,0-0.95C21.915,29.429,21.914,30.379,22.526,30.379L22.526,30.379z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M23.517,36.17c0.611,0,0.612-0.95,0-0.95C22.906,35.22,22.904,36.17,23.517,36.17L23.517,36.17z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M27.708,42.875c0.611,0,0.612-0.95,0-0.95C27.096,41.925,27.095,42.875,27.708,42.875L27.708,42.875z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M36.698,49.656c0.611,0,0.612-0.95,0-0.95C36.087,48.706,36.086,49.656,36.698,49.656L36.698,49.656z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M40.813,52.551c0.611,0,0.612-0.95,0-0.95C40.201,51.601,40.2,52.551,40.813,52.551L40.813,52.551z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M43.861,55.828c0.611,0,0.612-0.95,0-0.95C43.249,54.878,43.248,55.828,43.861,55.828L43.861,55.828z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M47.67,56.818c0.611,0,0.612-0.95,0-0.95C47.059,55.868,47.058,56.818,47.67,56.818L47.67,56.818z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M49.651,59.79c0.611,0,0.612-0.95,0-0.95C49.04,58.84,49.039,59.79,49.651,59.79L49.651,59.79z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M45.689,59.333c0.611,0,0.612-0.95,0-0.95C45.078,58.383,45.077,59.333,45.689,59.333L45.689,59.333z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M42.565,58.113c0.611,0,0.612-0.95,0-0.95C41.954,57.164,41.953,58.113,42.565,58.113L42.565,58.113z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M38.222,54.456c0.611,0,0.612-0.95,0-0.95C37.611,53.506,37.61,54.456,38.222,54.456L38.222,54.456z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M32.05,50.875c0.611,0,0.612-0.95,0-0.95C31.439,49.925,31.438,50.875,32.05,50.875L32.05,50.875z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M23.822,44.475c0.611,0,0.612-0.95,0-0.95C23.21,43.525,23.209,44.475,23.822,44.475L23.822,44.475z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M19.479,38.608c0.611,0,0.612-0.95,0-0.95C18.867,37.658,18.866,38.608,19.479,38.608L19.479,38.608z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M17.04,29.998c0.611,0,0.612-0.95,0-0.95C16.429,29.048,16.428,29.998,17.04,29.998L17.04,29.998z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M16.736,23.065c0.611,0,0.612-0.95,0-0.95C16.124,22.115,16.123,23.065,16.736,23.065L16.736,23.065z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M18.793,17.426c0.611,0,0.612-0.95,0-0.95C18.182,16.476,18.181,17.426,18.793,17.426L18.793,17.426z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M22.907,14.455c0.611,0,0.612-0.95,0-0.95C22.296,13.505,22.295,14.455,22.907,14.455L22.907,14.455z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M28.012,13.998c0.611,0,0.612-0.95,0-0.95C27.401,13.047,27.4,13.998,28.012,13.998L28.012,13.998z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M32.965,16.055c0.611,0,0.612-0.95,0-0.95C32.354,15.105,32.353,16.055,32.965,16.055L32.965,16.055z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M35.936,19.864c0.611,0,0.612-0.95,0-0.95C35.325,18.914,35.324,19.864,35.936,19.864L35.936,19.864z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M37.155,24.512c0.611,0,0.612-0.95,0-0.95C36.544,23.562,36.543,24.512,37.155,24.512L37.155,24.512z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M35.936,28.855c0.611,0,0.612-0.95,0-0.95C35.325,27.905,35.324,28.855,35.936,28.855L35.936,28.855z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M36.698,32.132c0.611,0,0.612-0.95,0-0.95C36.087,31.182,36.086,32.132,36.698,32.132L36.698,32.132z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M39.365,34.036c0.611,0,0.612-0.95,0-0.95C38.754,33.086,38.753,34.036,39.365,34.036L39.365,34.036z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M67.404,76.247c0.611,0,0.612-0.95,0-0.95C66.793,75.298,66.792,76.247,67.404,76.247L67.404,76.247z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M82.338,76.4c0.611,0,0.612-0.95,0-0.95C81.727,75.45,81.726,76.4,82.338,76.4L82.338,76.4z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M72.052,77.314c0.611,0,0.612-0.95,0-0.95C71.441,76.364,71.44,77.314,72.052,77.314L72.052,77.314z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M78.147,77.39c0.611,0,0.612-0.95,0-0.95C77.536,76.44,77.535,77.39,78.147,77.39L78.147,77.39z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M86.072,77.619c0.611,0,0.612-0.95,0-0.95C85.46,76.669,85.459,77.619,86.072,77.619L86.072,77.619z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M91.481,80.438c0.611,0,0.612-0.95,0-0.95C90.87,79.488,90.869,80.438,91.481,80.438L91.481,80.438z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M95.596,83.867c0.611,0,0.612-0.95,0-0.95C94.984,82.917,94.983,83.867,95.596,83.867L95.596,83.867z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M97.729,87.829c0.611,0,0.612-0.95,0-0.95C97.118,86.879,97.117,87.829,97.729,87.829L97.729,87.829z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M95.824,89.277c0.611,0,0.612-0.95,0-0.95C95.213,88.327,95.212,89.277,95.824,89.277L95.824,89.277z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M87.9,90.496c0.611,0,0.612-0.95,0-0.95C87.289,89.546,87.288,90.496,87.9,90.496L87.9,90.496z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M75.328,91.029c0.611,0,0.612-0.95,0-0.95C74.717,90.079,74.716,91.029,75.328,91.029L75.328,91.029z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M65.042,90.572c0.611,0,0.612-0.95,0-0.95C64.431,89.622,64.43,90.572,65.042,90.572L65.042,90.572z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M57.88,89.81c0.611,0,0.612-0.95,0-0.95C57.269,88.86,57.268,89.81,57.88,89.81L57.88,89.81z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M54.07,89.124c0.611,0,0.612-0.95,0-0.95C53.459,88.174,53.458,89.124,54.07,89.124L54.07,89.124z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M52.699,87.676c0.611,0,0.612-0.95,0-0.95C52.088,86.727,52.087,87.676,52.699,87.676L52.699,87.676z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M55.137,83.334c0.611,0,0.612-0.95,0-0.95C54.526,82.383,54.525,83.334,55.137,83.334L55.137,83.334z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M59.632,79.829c0.611,0,0.612-0.95,0-0.95C59.021,78.879,59.02,79.829,59.632,79.829L59.632,79.829z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M63.975,77.848c0.611,0,0.612-0.95,0-0.95C63.364,76.898,63.363,77.848,63.975,77.848L63.975,77.848z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M55.67,93.315c0.611,0,0.612-0.95,0-0.95C55.059,92.365,55.058,93.315,55.67,93.315L55.67,93.315z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M60.242,100.248c0.611,0,0.612-0.95,0-0.95C59.631,99.298,59.63,100.248,60.242,100.248L60.242,100.248z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M63.975,107.487c0.611,0,0.612-0.95,0-0.95C63.364,106.537,63.363,107.487,63.975,107.487L63.975,107.487z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M67.099,117.925c0.611,0,0.612-0.95,0-0.95C66.488,116.975,66.487,117.925,67.099,117.925L67.099,117.925z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M82.871,118.382c0.611,0,0.612-0.95,0-0.95C82.26,117.433,82.259,118.382,82.871,118.382L82.871,118.382z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M85.462,108.325c0.611,0,0.612-0.95,0-0.95C84.851,107.375,84.85,108.325,85.462,108.325L85.462,108.325z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M89.272,100.858c0.611,0,0.612-0.95,0-0.95C88.66,99.908,88.659,100.858,89.272,100.858L89.272,100.858z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M93.615,94.534c0.611,0,0.612-0.95,0-0.95C93.004,93.584,93.003,94.534,93.615,94.534L93.615,94.534z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M68.623,119.449c0.611,0,0.612-0.95,0-0.95C68.012,118.499,68.011,119.449,68.623,119.449L68.623,119.449z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M72.585,120.364c0.611,0,0.612-0.95,0-0.95C71.974,119.413,71.973,120.364,72.585,120.364L72.585,120.364z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M78.3,120.211c0.611,0,0.612-0.95,0-0.95C77.689,119.261,77.688,120.211,78.3,120.211L78.3,120.211z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M81.271,119.525c0.611,0,0.612-0.95,0-0.95C80.66,118.575,80.659,119.525,81.271,119.525L81.271,119.525z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M63.595,124.706c0.611,0,0.612-0.95,0-0.95C62.983,123.757,62.982,124.706,63.595,124.706L63.595,124.706z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M63.899,126.535c0.611,0,0.612-0.95,0-0.95C63.288,125.585,63.287,126.535,63.899,126.535L63.899,126.535z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M66.718,128.288c0.611,0,0.612-0.95,0-0.95C66.107,127.338,66.106,128.288,66.718,128.288L66.718,128.288z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M72.738,129.43c0.611,0,0.612-0.95,0-0.95C72.127,128.48,72.126,129.43,72.738,129.43L72.738,129.43z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M80.205,129.202c0.611,0,0.612-0.95,0-0.95C79.593,128.252,79.592,129.202,80.205,129.202L80.205,129.202z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M84.167,127.754c0.611,0,0.612-0.95,0-0.95C83.555,126.804,83.554,127.754,84.167,127.754L84.167,127.754z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M86.376,126.611c0.611,0,0.612-0.95,0-0.95C85.765,125.661,85.764,126.611,86.376,126.611L86.376,126.611z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M86.834,124.859c0.611,0,0.612-0.95,0-0.95C86.222,123.909,86.221,124.859,86.834,124.859L86.834,124.859z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M67.861,131.107c0.611,0,0.612-0.95,0-0.95C67.25,130.157,67.249,131.107,67.861,131.107L67.861,131.107z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M69.309,132.097c0.611,0,0.612-0.95,0-0.95C68.698,131.147,68.697,132.097,69.309,132.097L69.309,132.097z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M74.033,132.935c0.611,0,0.612-0.95,0-0.95C73.422,131.985,73.421,132.935,74.033,132.935L74.033,132.935z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M78.757,132.554c0.611,0,0.612-0.95,0-0.95C78.146,131.604,78.145,132.554,78.757,132.554L78.757,132.554z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M81.271,132.097c0.611,0,0.612-0.95,0-0.95C80.66,131.147,80.659,132.097,81.271,132.097L81.271,132.097z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M82.338,131.031c0.611,0,0.612-0.95,0-0.95C81.727,130.081,81.726,131.031,82.338,131.031L82.338,131.031z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M66.414,133.621c0.611,0,0.612-0.95,0-0.95C65.802,132.671,65.801,133.621,66.414,133.621L66.414,133.621z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M61.918,134.764c0.611,0,0.612-0.95,0-0.95C61.307,133.814,61.306,134.764,61.918,134.764L61.918,134.764z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M56.28,136.745c0.611,0,0.612-0.95,0-0.95C55.669,135.795,55.668,136.745,56.28,136.745L56.28,136.745z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M51.861,140.859c0.611,0,0.612-0.95,0-0.95C51.25,139.91,51.249,140.859,51.861,140.859L51.861,140.859z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M53.308,142.307c0.611,0,0.612-0.95,0-0.95C52.697,141.357,52.696,142.307,53.308,142.307L53.308,142.307z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M57.88,143.298c0.611,0,0.612-0.95,0-0.95C57.269,142.348,57.268,143.298,57.88,143.298L57.88,143.298z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M65.423,144.136c0.611,0,0.612-0.95,0-0.95C64.812,143.186,64.811,144.136,65.423,144.136L65.423,144.136z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M75.024,144.364c0.611,0,0.612-0.95,0-0.95C74.412,143.414,74.411,144.364,75.024,144.364L75.024,144.364z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M85.157,144.136c0.611,0,0.612-0.95,0-0.95C84.546,143.186,84.545,144.136,85.157,144.136L85.157,144.136z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M92.167,143.374c0.611,0,0.612-0.95,0-0.95C91.556,142.424,91.555,143.374,92.167,143.374L92.167,143.374z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M95.748,142.536c0.611,0,0.612-0.95,0-0.95C95.137,141.586,95.136,142.536,95.748,142.536L95.748,142.536z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M98.567,141.24c0.611,0,0.612-0.95,0-0.95C97.956,140.29,97.955,141.24,98.567,141.24L98.567,141.24z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M96.282,138.497c0.611,0,0.612-0.95,0-0.95C95.67,137.548,95.669,138.497,96.282,138.497L96.282,138.497z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M88.053,134.764c0.611,0,0.612-0.95,0-0.95C87.441,133.814,87.44,134.764,88.053,134.764L88.053,134.764z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M84.167,133.24c0.611,0,0.612-0.95,0-0.95C83.555,132.29,83.554,133.24,84.167,133.24L84.167,133.24z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M64.509,135.526c0.611,0,0.612-0.95,0-0.95C63.898,134.576,63.897,135.526,64.509,135.526L64.509,135.526z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M70.071,136.135c0.611,0,0.612-0.95,0-0.95C69.46,135.186,69.459,136.135,70.071,136.135L70.071,136.135z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M79.062,136.135c0.611,0,0.612-0.95,0-0.95C78.451,135.186,78.45,136.135,79.062,136.135L79.062,136.135z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M84.243,135.602c0.611,0,0.612-0.95,0-0.95C83.632,134.652,83.631,135.602,84.243,135.602L84.243,135.602z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M51.869,35.611c0.611,0,0.612-0.95,0-0.95C51.258,34.661,51.257,35.611,51.869,35.611L51.869,35.611z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M55.744,46.111c0.611,0,0.612-0.95,0-0.95C55.133,45.161,55.132,46.111,55.744,46.111L55.744,46.111z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M61.494,58.111c0.611,0,0.612-0.95,0-0.95C60.883,57.161,60.882,58.111,61.494,58.111L61.494,58.111z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M72.869,62.986c0.611,0,0.612-0.95,0-0.95C72.258,62.036,72.257,62.986,72.869,62.986L72.869,62.986z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M87.994,57.861c0.611,0,0.612-0.95,0-0.95C87.383,56.911,87.382,57.861,87.994,57.861L87.994,57.861z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M92.869,48.736c0.611,0,0.612-0.95,0-0.95C92.258,47.786,92.257,48.736,92.869,48.736L92.869,48.736z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M101.494,35.236c0.611,0,0.612-0.95,0-0.95C100.883,34.286,100.882,35.236,101.494,35.236L101.494,35.236z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M85.244,35.611c0.611,0,0.612-0.95,0-0.95C84.633,34.661,84.632,35.611,85.244,35.611L85.244,35.611z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M63.869,36.111c0.611,0,0.612-0.95,0-0.95C63.258,35.161,63.257,36.111,63.869,36.111L63.869,36.111z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M75.494,46.986c0.611,0,0.612-0.95,0-0.95C74.883,46.036,74.882,46.986,75.494,46.986L75.494,46.986z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M67.244,80.737c0.611,0,0.612-0.95,0-0.95C66.633,79.786,66.632,80.737,67.244,80.737L67.244,80.737z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M61.744,85.487c0.611,0,0.612-0.95,0-0.95C61.133,84.536,61.132,85.487,61.744,85.487L61.744,85.487z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M75.369,84.237c0.611,0,0.612-0.95,0-0.95C74.758,83.286,74.757,84.237,75.369,84.237L75.369,84.237z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M83.494,80.362c0.611,0,0.612-0.95,0-0.95C82.883,79.411,82.882,80.362,83.494,80.362L83.494,80.362z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M87.494,84.112c0.611,0,0.612-0.95,0-0.95C86.883,83.161,86.882,84.112,87.494,84.112L87.494,84.112z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M63.119,95.862c0.611,0,0.612-0.95,0-0.95C62.508,94.911,62.507,95.862,63.119,95.862L63.119,95.862z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M65.269,102.511c0,0.042,0,0.083,0,0.125c0,0.611,0.95,0.612,0.95,0c0-0.042,0-0.083,0-0.125
+								C66.219,101.9,65.269,101.899,65.269,102.511L65.269,102.511z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M68.994,113.862c0.611,0,0.612-0.95,0-0.95C68.383,112.911,68.382,113.862,68.994,113.862L68.994,113.862z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M80.494,114.487c0.611,0,0.612-0.95,0-0.95C79.883,113.536,79.882,114.487,80.494,114.487L80.494,114.487z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M82.244,103.612c0.611,0,0.612-0.95,0-0.95C81.633,102.661,81.632,103.612,82.244,103.612L82.244,103.612z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M86.494,94.987c0.611,0,0.612-0.95,0-0.95C85.883,94.036,85.882,94.987,86.494,94.987L86.494,94.987z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M75.119,96.987c0.611,0,0.612-0.95,0-0.95C74.508,96.036,74.507,96.987,75.119,96.987L75.119,96.987z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M74.494,106.612c0.611,0,0.612-0.95,0-0.95C73.883,105.661,73.882,106.612,74.494,106.612L74.494,106.612z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M68.369,123.487c0.611,0,0.612-0.95,0-0.95C67.758,122.536,67.757,123.487,68.369,123.487L68.369,123.487z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M74.994,123.987c0.611,0,0.612-0.95,0-0.95C74.383,123.036,74.382,123.987,74.994,123.987L74.994,123.987z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M81.119,123.487c0.611,0,0.612-0.95,0-0.95C80.508,122.536,80.507,123.487,81.119,123.487L81.119,123.487z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M60.244,138.986c0.611,0,0.612-0.95,0-0.95C59.633,138.036,59.632,138.986,60.244,138.986L60.244,138.986z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M70.619,138.861c0.611,0,0.612-0.95,0-0.95C70.008,137.911,70.007,138.861,70.619,138.861L70.619,138.861z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M79.744,140.361c0.611,0,0.612-0.95,0-0.95C79.133,139.411,79.132,140.361,79.744,140.361L79.744,140.361z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M87.869,137.861c0.611,0,0.612-0.95,0-0.95C87.258,136.911,87.257,137.861,87.869,137.861L87.869,137.861z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          class="shard"
+                          d="M91.994,139.986c0.611,0,0.612-0.95,0-0.95C91.383,139.036,91.382,139.986,91.994,139.986L91.994,139.986z"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="70.071,135.731 64.501,135.12 61.899,134.356 61.938,134.221 64.529,134.983 70.079,135.592 79.062,135.591 
+							84.237,135.057 88.038,134.221 88.068,134.357 84.258,135.195 79.068,135.73 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="74.03,132.531 74.021,132.53 69.297,131.691 69.322,131.553 74.036,132.39 78.751,132.01 81.259,131.553 
+							81.284,131.691 78.77,132.149 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        style="display: none"
+                        d="M67.404,75.772"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M81.582,31.193l-14.788-0.076l-11.359-1.143l-7.55-1.449l-3.687-1.385l-2.5-1.954l0.056-0.056l1.702-1.693l6.4-2.286
+							l11.749-1.451l13.188-0.458l14.558,0.533l9.684,1.372l5.567,1.296l2.779,1.387l0.01,0.02l0.868,1.654l-0.051,0.035
+							l-3.072,2.145l-10.515,2.362L81.582,31.193z M44.276,27.023l3.647,1.368l7.532,1.444l11.346,1.142l14.775,0.076L94.6,29.91
+							l10.491-2.357l2.986-2.09l-0.8-1.525l-2.723-1.362l-5.546-1.29l-9.671-1.371l-14.545-0.533L61.616,19.84l-11.727,1.447
+							l-6.37,2.277l-1.609,1.609L44.276,27.023z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="97.354,59.308 97.342,59.169 102.981,58.712 108.132,57.195 111.091,54.388 116.438,51.33 124.195,46.158 
+							130.048,38.329 133.241,27.839 132.786,20.097 129.611,15.183 123.407,13.443 117.655,15.26 113.947,19.497 113.192,23.654 
+							114.258,27.842 114.256,27.854 113.949,30.77 113.937,30.787 112.245,32.863 112.222,32.868 107.802,33.858 107.771,33.722 
+							112.167,32.737 113.815,30.715 114.115,27.852 113.049,23.659 113.051,23.643 113.817,19.434 113.829,19.42 117.575,15.138 
+							123.405,13.297 123.425,13.302 129.698,15.063 129.713,15.085 132.925,20.071 133.382,27.855 133.379,27.868 130.167,38.404 
+							124.283,46.267 116.512,51.449 111.174,54.499 108.188,57.325 103.006,58.849 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="99.94,56.261 99.938,56.121 104.49,56.045 107.293,54.378 112.006,49.968 121.298,43.264 126.009,36.656 
+							127.525,30.513 126.392,25.677 123.765,23.576 120.536,23.801 117.983,25.678 117.231,28.912 118.769,34.371 118.702,34.391 
+							113.14,35.991 107.341,36.983 107.318,36.845 113.109,35.855 118.597,34.276 117.086,28.915 117.09,28.898 117.858,25.597 
+							117.879,25.581 120.485,23.664 123.81,23.432 123.831,23.449 126.517,25.598 126.523,25.621 127.669,30.514 127.665,30.53 
+							126.13,36.726 121.39,43.371 112.095,50.076 107.377,54.489 104.529,56.184 104.511,56.184 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="53.078,59.461 49.65,59.385 45.664,58.923 42.52,57.692 38.177,54.035 32.015,50.461 23.765,44.041 
+							19.411,38.152 16.973,29.542 16.665,22.579 16.67,22.566 18.734,16.907 22.882,13.912 22.901,13.91 28.023,13.451 
+							28.039,13.458 33.009,15.522 33.02,15.537 36.004,19.372 37.228,24.038 37.223,24.056 36.008,28.382 36.76,31.615 
+							39.39,33.493 42.418,33.72 42.407,33.86 39.34,33.63 39.324,33.618 36.636,31.698 36.63,31.672 35.864,28.379 35.869,28.361 
+							37.083,24.037 35.872,19.421 32.921,15.637 28.002,13.594 22.933,14.048 18.851,16.995 16.806,22.6 17.11,29.52 
+							19.543,38.102 23.872,43.951 32.093,50.345 38.257,53.921 42.601,57.577 45.706,58.789 49.659,59.245 53.081,59.321 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="47.663,56.413 47.653,56.411 43.823,55.415 43.809,55.401 40.761,52.124 36.658,49.238 27.648,42.437 
+							23.448,35.706 22.455,29.902 23.378,25.75 26.16,23.586 30.408,23.663 32.884,26.681 32.882,26.709 32.577,30.824 
+							31.827,35.179 37.242,36.007 43.044,37.93 43,38.063 37.21,36.142 31.665,35.296 32.439,30.807 32.74,26.727 30.34,23.802 
+							26.207,23.726 23.504,25.829 22.598,29.906 23.584,35.669 27.76,42.352 36.74,49.125 40.853,52.019 43.898,55.29 
+							47.677,56.273 50.18,56.121 50.189,56.261 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="41.822,25.247 41.785,25.113 61.595,19.703 61.632,19.838 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <rect
+                        x="49.868"
+                        y="20.462"
+                        transform="matrix(0.9994 -0.0351 0.0351 0.9994 -0.6769 2.4528)"
+                        width="39.492"
+                        height="0.14"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="94.636,30.043 94.575,29.917 107.299,23.822 107.36,23.948 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="66.801,31.117 66.788,30.977 105.114,27.549 105.126,27.688 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M81.573,31.193c-0.496-0.023-35.835-3.875-37.34-4.038l-0.05-0.006l-0.01-0.049l-0.774-3.641l0.058-0.021
+							c0.695-0.249,17.432-3.594,18.144-3.736l15.215,0.041c-1.249-0.17-2.015-0.305-2.076-0.388l0.112-0.083
+							c0.119,0.09,1.238,0.258,2.998,0.474l11.499,0.031l15.25,2.668l-0.018,0.139c-2.388-0.22-19.482-1.8-26.672-2.699
+							L61.613,19.84c-0.158,0.033-16.763,3.352-18.052,3.712l0.738,3.469c1.558,0.17,36.797,4.01,37.28,4.033L81.573,31.193z
+							 M79.04,19.888c6.102,0.71,17.393,1.797,23.831,2.397l-13.535-2.369L79.04,19.888z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="97.409,59.271 97.286,59.206 105.586,43.597 108.099,25.475 108.237,25.494 105.715,43.652 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="90.925,65.075 90.82,64.983 102.542,51.586 108.253,29.962 108.388,29.998 102.658,51.665 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <rect
+                        x="58.724"
+                        y="52.167"
+                        transform="matrix(0.6415 -0.7671 0.7671 0.6415 -27.5512 67.8241)"
+                        width="0.14"
+                        height="22.447"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="53.016,59.421 42.959,38.026 43.086,37.967 51.81,56.524 42.348,33.817 42.477,33.763 53.144,59.364 						
+							"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="70.969,71.653 70.951,71.643 59.12,64.92 46.077,48.128 41.735,25.193 41.872,25.167 46.212,48.085 
+							59.222,64.823 71.002,71.51 82.485,70.759 82.495,70.898 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <rect
+                        x="88.159"
+                        y="40.768"
+                        transform="matrix(0.2595 -0.9657 0.9657 0.2595 37.6095 130.7267)"
+                        width="31.79"
+                        height="0.139"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="95.785,83.874 86.032,77.201 86.11,77.086 95.864,83.759 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="55.172,82.919 55.102,82.798 67.369,75.712 67.439,75.833 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M98.11,87.912l-6.671-7.891c-0.399-0.179-8.525-3.811-9.104-4.023l-4.171,0.986l-6.112-0.075l-4.639-1.063
+							l-3.31,1.544l3.188,2.819l-0.093,0.104l-3.223-2.848L52.44,87.52l2.654-4.718l4.496-3.504l4.348-1.986l0.039-0.034l0.012,0.01
+							l3.346-1.561V70.5l3.67,1.015l3.646,0.379l3.112-0.229l4.801-0.921l-0.002,0.087l-0.151,5.044l3.684,1.203l5.444,2.843
+							l4.12,3.438L98.11,87.912z M55.191,82.905l-2.233,3.979l10.609-9.248l-3.905,1.782L55.191,82.905z M92.052,80.53l5.298,6.267
+							l-1.81-3.36L92.052,80.53z M83.81,76.479c1.514,0.663,3.891,1.721,5.605,2.485l-3.376-1.758L83.81,76.479z M67.474,75.717
+							l4.594,1.054l6.081,0.075l4.121-0.976l0.148-4.956l-4.638,0.89l-3.133,0.229l-3.669-0.381l-3.504-0.968V75.717z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M75.338,90.624l-21.274-1.905l0.013-0.139l21.257,1.905l22.386-3.2l0.028,0.137c-0.386,0.106-9.463,2.61-9.837,2.668
+							l-0.021-0.139c0.291-0.045,6.277-1.688,8.759-2.371L75.338,90.624z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="57.867,89.405 57.853,89.399 52.581,87.229 52.647,87.156 59.657,79.22 59.698,79.329 61.81,84.987 
+							61.679,85.036 59.608,79.488 52.817,87.175 57.893,89.264 95.823,88.731 95.825,88.872 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M75.318,90.624c-0.892-0.124-21.867-3.036-22.646-3.357l0.054-0.129c0.763,0.314,22.394,3.317,22.612,3.348
+							L75.318,90.624z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M72.573,119.96l-0.017-0.007l-1.635-0.728l-2.304-0.182l0.011-0.139l1.909,0.149l-3.496-1.554l-0.009-0.03
+							l-3.124-10.438l-3.729-7.227l-4.568-6.928L52.4,86.785l1.706,1.8l3.787,0.681l7.157,0.762l10.282,0.457l12.566-0.534
+							l7.898-1.215l2.188-1.662l-0.195,0.317l-4.115,6.705l-4.345,6.327l-3.805,7.46l-2.595,10.076l-0.032,0.014l-2.804,1.121
+							l1.171-0.112l0.014,0.139l-1.648,0.159l-1.319,0.528l-0.017-0.002l-2.271-0.179L72.573,119.96z M71.34,119.259l1.257,0.559
+							l2.624-0.253L71.34,119.259z M76.825,119.55l1.464,0.115l0.845-0.338L76.825,119.55z M70.956,119.088l5.066,0.398l3.574-0.345
+							l3.216-1.286l2.582-10.022l3.814-7.482l4.348-6.331l3.918-6.384l-1.64,1.235l-7.924,1.219l-12.58,0.535l-10.292-0.458
+							l-7.167-0.763l-3.837-0.69l-1.037-1.095l2.734,5.189l4.568,6.928l3.737,7.244l3.119,10.42L70.956,119.088z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M75.026,143.96l-9.604-0.229l-7.549-0.839l-4.599-0.996l-0.014-0.015l-1.499-1.499l0.053-0.049l4.444-4.13
+							l5.638-1.982l4.502-1.143l2.777-1.465l-1.37-0.936l-0.008-0.02l-1.134-2.798l-2.827-1.757l-0.005-0.031l-0.309-1.853
+							l0.011-0.021l3.549-6.866l1.577,1.578l3.934,0.907l5.706-0.152l2.944-0.681l1.649-1.179l0.039,0.065l3.978,6.502l-0.008,0.028
+							l-0.465,1.783l-0.027,0.015l-2.19,1.133l-1.83,3.273l-0.991,0.99l2.796,1.104l3.886,1.523l8.257,3.754l2.345,2.814
+							l-2.902,1.333l-3.595,0.844l-7.018,0.763L75.026,143.96z M53.343,141.767l4.551,0.987l7.536,0.837l9.595,0.228l10.13-0.229
+							l7.004-0.761l3.573-0.838l2.723-1.252l-2.218-2.661l-8.214-3.727l-6.877-2.704l0.075-0.076l1.06-1.06l1.732-3.103
+							l-3.808,1.388l-7.466,0.229l-5.908-1.121l1.087,2.681l1.526,1.044l-2.998,1.578l-4.511,1.148l-5.618,1.976l-4.356,4.055
+							L53.343,141.767z M66.755,127.748l5.996,1.14l7.439-0.229l3.948-1.443l2.178-1.126l0.441-1.694l-3.907-6.387l-1.563,1.111
+							l-2.972,0.686l-5.737,0.154l-0.009-0.002l-3.981-0.919l-0.014-0.014l-1.456-1.457l-3.439,6.654L66.755,127.748z
+							 M63.963,126.017l2.395,1.489l-2.654-3.043L63.963,126.017z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M124.291,46.355l-0.097-0.096l-2.895-2.895l0.1-0.099l2.799,2.799c0.236-1.4,1.53-9.014,1.819-9.419l0.032-0.045
+							l0.051,0.021l4.038,1.676l-0.053,0.129l-3.979-1.651c-0.255,0.626-1.199,5.917-1.792,9.446L124.291,46.355z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M112.074,50.086l-0.041-0.134l12.155-3.799l8.57-26.012c-5.182-0.237-18.403-0.796-18.843-0.614l-0.072-0.12
+							c0.392-0.25,17.108,0.511,19.014,0.599l0.093,0.004l-0.029,0.088L124.3,46.265l-0.035,0.011L112.074,50.086z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="108.101,57.278 107.235,54.368 111.139,54.368 111.139,54.508 107.423,54.508 108.235,57.238 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="118.821,34.4 118.679,34.393 107.782,33.86 107.79,33.72 118.544,34.247 114.129,27.887 114.244,27.807 
+													"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="126.317,25.85 126.387,25.617 129.539,15.261 113.152,23.718 113.088,23.594 129.77,14.985 129.722,15.143 
+							126.592,25.425 132.809,20.022 132.901,20.128 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="118.641,34.38 113.84,30.799 113.924,30.686 118.725,34.267 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="113.099,36.1 112.139,32.819 112.274,32.78 113.142,35.747 117.098,28.878 117.219,28.948 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        style="display: none"
+                        d="M116.473,51.391"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M32.015,50.482l-0.026-0.048l-4.332-7.981l-8.263-4.284l0.019-0.057l3.953-12.315l-4.683-8.904l0.104-0.01
+							l10.402-1.006l-1.237-2.32l0.124-0.066l1.265,2.371l3.698-0.358l-0.001,0.078l-0.096,7.03l3.168,5.941l-3.365-1.806
+							l0.001-0.042l0.056-4.058l-3.539-6.636l-10.356,1.002l4.613,8.773l-0.009,0.028l-3.943,12.287l8.195,4.25l0.01,0.019
+							l4.316,7.952l4.595-1.206l0.035,0.136L32.015,50.482z M32.883,26.662l2.883,1.547l-2.832-5.309L32.883,26.662z M29.41,15.994
+							l3.392,6.36l0.092-6.698L29.41,15.994z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        style="display: none"
+                        d="M27.708,42.4"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="42.968,38.041 39.338,33.639 31.432,35.378 36.528,31.694 32.494,30.888 32.521,30.75 36.869,31.619 
+							32.06,35.097 39.392,33.484 43.076,37.952 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <rect
+                        x="36.895"
+                        y="31.64"
+                        transform="matrix(0.9928 -0.1198 0.1198 0.9928 -3.7903 4.6714)"
+                        width="0.14"
+                        height="4.452"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M26.285,23.738l-0.109-0.013l-9.946-1.123l9.015-1.502l-2.403-7.098l0.133-0.045l2.411,7.12l10.54-1.756l0.023,0.138
+							L25.43,21.212L26.285,23.738z M17.241,22.576l8.841,0.998l-0.792-2.339L17.241,22.576z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="23.755,44.022 16.545,22.236 22.361,29.582 18.686,16.835 18.818,16.886 37.181,23.972 37.13,24.103 
+							18.899,17.068 22.692,30.226 22.472,29.948 16.926,22.944 23.888,43.978 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="127.626,30.577 127.568,30.45 133.12,27.859 126.396,25.692 126.386,25.655 123.402,13.644 120.518,23.969 
+							120.444,23.755 117.549,15.222 117.682,15.177 120.504,23.495 123.41,13.095 123.475,13.353 126.513,25.583 133.503,27.835 
+							133.341,27.91 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M72.728,129.029l-0.017-0.009l-2.816-0.922l-3.181-0.216l0,0l0.01-0.141c0.002,0.001,0.005,0.001,0.008,0.001
+							c0.097,0,0.714-0.048,1.69-0.127l-4.545-1.489l0.033-0.136l4.298,0.703l-4.81-2.485l0.179-0.045l4.725-1.208l0.255-4.052
+							h0.066l12.648,0.076v0.141l-12.583-0.076l-0.253,4.022l-0.05,0.012l-4.596,1.175l4.865,2.514l3.349,0.548
+							c2.245-0.191,4.95-0.426,7.584-0.655l0.924-0.3l0.55-3.435l0.074,0.018l5.684,1.365l0.467-0.313l-0.321,0.349l0.126,0.03
+							l-0.219,0.07l-1.581,1.718c0.374-0.033,0.734-0.065,1.079-0.095l0.021,0.138l-1.407,0.291l-0.781,0.849l-0.025,0.004
+							l-2.153,0.316c-0.868,0.567-1.561,1.01-1.756,1.11l-0.006,0.032l-0.065-0.011l-4.029-0.274L72.728,129.029z M71.432,128.202
+							l1.312,0.679l1.501-0.487L71.432,128.202z M77.867,128.274l2.279,0.373l0.115-0.725L77.867,128.274z M74.621,128.419
+							l-0.65,0.211l0.929-0.192L74.621,128.419z M70.462,128.137l1.47,0.481l-0.851-0.439L70.462,128.137z M80.407,127.901
+							l-0.112,0.7c0.229-0.132,0.74-0.459,1.399-0.889L80.407,127.901z M76.821,128.428l1.91,0.13l-1.32-0.216L76.821,128.428z
+							 M75.42,128.472l-0.313,0.066l0.399-0.059L75.42,128.472z M75.931,128.367l0.23,0.016l0.793-0.116l-0.3-0.049L75.931,128.367z
+							 M74.979,128.303l0.432,0.029l0.858-0.178l-0.554-0.09L74.979,128.303z M71.119,128.041l3.484,0.236l0.81-0.263l-3.416-0.559
+							c-0.61,0.052-1.19,0.102-1.727,0.146L71.119,128.041z M77.037,128.139l0.374,0.061l2.874-0.422l0.052-0.321L77.037,128.139z
+							 M76.005,127.969l0.646,0.105l3.709-0.767l0.094-0.583c-0.275,0.023-0.555,0.048-0.838,0.073L76.005,127.969z M69.921,127.96
+							l0.847,0.058l-0.76-0.393c-0.312,0.025-0.608,0.051-0.885,0.073L69.921,127.96z M67.735,127.811l1.619,0.109l-0.59-0.192
+							C68.373,127.76,68.026,127.788,67.735,127.811z M72.568,127.407l3.136,0.514l3.293-1.068
+							C76.871,127.037,74.585,127.235,72.568,127.407z M80.484,127.426l-0.053,0.33l1.543-0.227c0.286-0.188,0.594-0.39,0.913-0.601
+							L80.484,127.426z M64.78,126.275l4.001,1.311c0.304-0.024,0.637-0.053,0.993-0.082l-1.165-0.602L64.78,126.275z
+							 M83.256,126.853c-0.326,0.216-0.648,0.428-0.954,0.629l1.83-0.269l0.616-0.669L83.256,126.853z M69.057,126.974l0.98,0.507
+							c0.435-0.036,0.902-0.076,1.396-0.118L69.057,126.974z M80.598,126.713l-0.091,0.565l2.694-0.557
+							c0.136-0.09,0.272-0.181,0.411-0.272C82.739,126.526,81.71,126.616,80.598,126.713z M83.904,126.424
+							c-0.11,0.073-0.223,0.147-0.334,0.222l1.342-0.277l0.032-0.035C84.636,126.359,84.286,126.39,83.904,126.424z M80.488,126.515
+							l-0.279,0.091c0.09-0.008,0.179-0.016,0.269-0.023L80.488,126.515z M80.637,126.468l-0.017,0.103
+							c1.118-0.098,2.211-0.192,3.236-0.282c0.881-0.586,1.78-1.187,2.521-1.683L80.637,126.468z M85.151,126.314l-0.005,0.005
+							l0.038-0.008C85.173,126.312,85.161,126.313,85.151,126.314z M81.177,123.097l-0.515,3.215l5.913-1.919L81.177,123.097z
+							 M86.382,124.77c-0.507,0.34-1.341,0.897-2.235,1.491c0.32-0.027,0.633-0.055,0.938-0.082L86.382,124.77z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M74.03,132.533l-0.018-0.005l-2.452-0.727l-2.29-0.111l-0.484-0.711l-1.155-0.343l0.748-0.257l-1.719-2.528
+							l0.116-0.078l1.74,2.56l4.198-1.443l0.046,0.133l-4.163,1.43l0.277,0.407l2.709,0.803l4.636,0.225l6.102-1.399l0.043,0.133
+							l-3.611,1.53l-2.521-0.122L74.03,132.533z M72.15,131.83l1.885,0.559l1.682-0.386L72.15,131.83z M76.739,131.912l2.006,0.098
+							l2.84-1.209L76.739,131.912z M69.347,131.553l1.648,0.08L69,131.042L69.347,131.553z M68.091,130.627l0.572,0.17l-0.202-0.297
+							L68.091,130.627z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="78.148,77.036 78.09,76.956 74.651,72.096 72.063,76.968 71.997,76.882 67.349,70.871 67.459,70.785 
+							72.041,76.711 74.634,71.829 74.7,71.922 78.148,76.795 82.434,70.788 82.547,70.869 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M87.452,83.77l-0.026-0.119l-1.395-6.363l-2.57,2.735l-1.193-4.101c-0.033-0.218-1.657-1.672-3.195-2.992
+							c-0.356,0.205-0.727,0.416-1.102,0.631l0.258,3.501l-2.776-2.067c-1.501,0.852-2.802,1.586-3.366,1.905l-0.083,0.047
+							l-1.122-5.531l4.582,3.412c0.776-0.441,1.584-0.901,2.363-1.346l-0.141-1.908l0.127,0.106c0.289,0.241,0.753,0.63,1.277,1.079
+							c1.823-1.046,3.254-1.881,3.348-1.976l0.11,0.085c-0.06,0.085-1.519,0.939-3.345,1.987c1.391,1.19,3.137,2.737,3.204,3.052
+							l1.121,3.841l2.584-2.75l1.425,6.503l3.897-3.591l0.096,0.102L87.452,83.77z M75.585,74.92l2.481,1.848l-0.23-3.129
+							C77.084,74.068,76.314,74.507,75.585,74.92z M71.09,71.747l1.011,4.983c0.815-0.459,1.976-1.116,3.228-1.827L71.09,71.747z
+							 M77.849,71.894l0.111,1.512c0.341-0.195,0.676-0.386,0.999-0.572C78.572,72.502,78.193,72.182,77.849,71.894z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M67.114,76.005l3.831-4.483l0.019-0.006l1.717-0.566c-3.039-1.465-9.098-4.116-13.533-6.008l0.044-0.132l18.101,4.621
+							l0.761-0.251l-25-9.722l-5.394-3.038l-5.142,1.305l-0.02-0.063l-1.74-5.522l-8.742-1.672l-0.015-0.015L19.414,38.167
+							l-0.004-0.022l-2.741-15.533l-0.021-0.041l0.037-0.03l6.191-8.637l0.043,0.006l3.756,0.598l1.38-1.11l0.319,1.38l4.637,0.738
+							l0.016,0.032l4.243,8.564L30.318,23.8l-0.012-0.052l-2.046-8.846l-1.545-0.246l-9.89,7.952l6.755,13.054l-0.124,0.064
+							l-6.571-12.698l2.66,15.07l12.541,12.236l8.783,1.68l0.013,0.04l1.732,5.499l5.068-1.286l0.024,0.014l5.41,3.048l25.15,9.78
+							l12.587-4.147l0.049,0.131l-10.942,4.675l2.559,0.995l-0.043,0.133l-3.228-0.824l-4.572,1.953L67.114,76.005z M71.026,71.642
+							l-3.332,3.898l6.839-3.6c-0.171-0.147-0.773-0.467-1.671-0.904L71.026,71.642z M73.046,70.977
+							c0.857,0.423,1.447,0.745,1.616,0.902l4.361-1.863l-1.724-0.44L73.046,70.977z M60.036,65.169
+							c2.559,1.097,9.492,4.088,12.83,5.72l4.181-1.377L60.036,65.169z M79.457,69.982l1.931,0.493l-1.614-0.628L79.457,69.982z
+							 M77.546,69.494l1.688,0.431l0.353-0.151l-1.327-0.516L77.546,69.494z M78.469,69.19l1.302,0.506l9.568-4.087L78.469,69.19z
+							 M30.43,23.665l6.61,0.297l-4.122-8.319l-4.509-0.717L30.43,23.665z M22.939,14.056l-5.848,8.159l9.437-7.587L22.939,14.056z
+							 M26.861,14.538l1.364,0.217l-0.256-1.108L26.861,14.538z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M49.702,59.434l-0.09-0.062l-5.78-3.954l-5.664-1.378l-0.012-0.038l-1.514-4.769l-12.889-5.186l-0.001-0.045
+							l-0.304-8.276l-6.482-6.177l0.005-0.036L18.729,16.9l0.039-0.014l9.255-3.442l0.03,0.023l7.952,5.887l0,0.034
+							c0.006,0.345,0.152,8.461-0.002,9.011l-0.007,0.024l-0.02,0.014l-3.365,2.393l4.638,5.161l5.104-2.253l0.849-3.113
+							l-1.467-5.428l0.135-0.036l1.405,5.197l0.898-3.293l0.135,0.037l-0.961,3.523l0.462,1.708l4.104-3.99l0.045,0.076l4.045,6.806
+							l-7.709-1.098l5.962,22.059l-0.003,0.015L49.702,59.434z M38.277,53.923l5.623,1.373l5.7,3.9l0.513-3.001l-5.969-22.087
+							l-1.707-0.243l-0.159,0.155l0.028-0.105l-5.093,2.247l-0.034-0.038l-4.776-5.316l3.471-2.468
+							c0.112-0.569,0.045-6.031-0.007-8.914l-7.866-5.824l-9.145,3.401l-1.742,12.495l6.471,6.166l0.001,0.029l0.303,8.26
+							l12.865,5.176l0.01,0.032L38.277,53.923z M44.255,33.981l7.48,1.065l-3.851-6.479l-4.033,3.921L44.255,33.981z M42.564,33.741
+							l1.54,0.219L43.736,32.6L42.564,33.741z M43.275,30.894l-0.728,2.667l1.147-1.115L43.275,30.894z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M82.518,70.899l-0.028,0l-15.116-0.237l-0.02-0.021l-21.29-22.511l0.019-0.042l5.711-12.952l-0.002-0.007l0.042-0.062
+							l3.59-5.258l0.058,0.039l8.368,5.692l2.913-4.57l0.048,0.011l18.233,4.042l-3.519-3.85l0.104-0.095l3.817,4.177l-0.061-0.013
+							l7.532,12.964l9.82,3.387l-0.083,0.08L82.518,70.899z M67.435,70.522l15.028,0.236l20.011-19.11l-9.571-3.301l-4.888,9.15
+							l-0.066-0.058L75.282,46.42l17.457,1.758l-7.54-12.98l-18.372-4.072l-2.862,4.491l0.147,0.1l-0.21-0.009l-8.18,10.068
+							l-0.043-0.115l-3.815-10.338L46.229,48.1L67.435,70.522z M75.706,46.603l12.268,10.673l4.784-8.956L75.706,46.603z
+							 M51.971,35.211l3.796,10.286l7.96-9.796L51.971,35.211z M51.998,35.072l11.629,0.484l-8.167-5.555L51.998,35.072z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M72.924,62.611l-11.448-4.906l-11.3-1.445l0.018-0.139l11.182,1.429l-5.67-11.832l-9.542,2.464l-0.035-0.136
+							l9.654-2.492l0.025,0.052l5.712,11.921l14.073-11.183L72.924,62.611z M61.63,57.618l11.185,4.793l2.581-15.733L61.63,57.618z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M50.247,56.223l-0.124-0.065l5.581-10.593l19.604,0.869L63.696,35.571l0.171-0.004L85.4,35.063l-0.103,0.119
+							l-9.706,11.324l0.09,0.083l-0.189-0.008l-19.706-0.873L50.247,56.223z M64.042,35.702L75.489,46.41l9.6-11.2L64.042,35.702z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M92.699,48.398l0.111-0.174l8.554-13.389L84.96,35.213l0.25-0.138l9.399-5.177l0.036,0.024l6.822,4.735l3.627-7.145
+							l0.067,0.049l3.278,2.419l-0.08,0.056l-6.777,4.748l4.166,8.874l-0.072,0.026L92.699,48.398z M101.485,34.906l-8.445,13.219
+							l12.519-4.546L101.485,34.906z M94.602,30.062l-9.073,4.997l15.749-0.363L94.602,30.062z M105.146,27.724l-3.462,6.82
+							l6.517-4.565L105.146,27.724z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="67.462,70.631 67.346,70.552 72.824,62.453 72.847,62.445 87.989,57.314 88.008,57.318 97.362,59.17 
+							97.334,59.307 87.999,57.459 72.914,62.57 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M77.78,71.806l-0.021-0.002l-10.395-1.154l-8.229-5.715l-6.102-5.491l-2.911-3.221l-4.039-8.076l-3.128-10.129
+							L42.343,33.8l-0.613-8.662l0.042-0.021l8.102-3.969l24.916-1.905l24.241,1.905l8.403,2.697l-0.044,0.076l-1.209,2.043
+							c1.059-0.335,1.804-0.549,1.981-0.549c0.004,0,0.008,0,0.012,0l0.063,0.004l0.003,0.063l0.152,4.496l-0.535,3.822
+							l-0.431,2.942l4.736-3.996l4.899-3.845l-1.412-1.838l-1.527,0.904l-0.005-0.118l-0.105-2.919l-0.974-1.267l0.021-0.04
+							l0.847-1.593l-0.095-2.602l0.033-0.021l2.206-1.412l1.495-2.813l-0.006-0.204l0.106,0.144c0.285-0.04,1.477-0.062,3.007-0.073
+							l2.756-1.764l0.038,0.027l2.434,1.727c1.991,0.003,3.6,0.012,3.774,0.013h0.053l0.015,0.05l0.961,3.345l2.182,1.548
+							l0.134-0.05l-0.076,0.15l-0.606,4.036l1.07,3.722l-0.013,0.024l-2.326,4.711l-0.865,5.767l0.013,0.039l-0.042,0.024
+							l-3.756,3.587l-2.099,4.251l-0.016,0.01c-0.131,0.087-2.198,1.101-4.847,2.388l-2.945,2.814l-1.741-0.541
+							c-0.178,0.086-0.355,0.172-0.532,0.258l-3.042,3.314l-0.02,0.005l-1.656,0.419l-1.293,2.408l-0.048-0.006l-3.204-0.416
+							l-1.965,1.965l-0.049-0.042l-1.524-1.296l-4.033,1.76l-6.479,5.792l-8.374,5.795l-0.085-0.111l4.142-3.475L77.78,71.806z
+							 M67.701,70.554l10.052,1.108l9.314-4.766l5.168-4.335l0.985-1.684L67.701,70.554z M50.243,56.151l2.889,3.193l6.091,5.48
+							l8.191,5.688l25.92-9.827l4.201-7.176c-2.229-2.567-4.467-5.09-4.688-5.182l0.046-0.132c0.255,0.088,2.743,2.914,4.717,5.187
+							l9.654-16.492l0.454-3.11l0.534-3.809l-0.15-4.412c-0.243,0.033-0.985,0.251-2.025,0.583l-0.912,1.541l-0.032,0.005
+							l-6.527,0.972c-1.456,0.504-2.847,0.99-3.975,1.387l-0.021,0.004l-7.205,0.276l-5.816,0.866l-7.566-0.353l-7.224,0.277
+							l-6.785-0.93l-4.593-0.217l-1.971-0.683l-5.583-0.769l-5.983-3.216l0.601,8.483l0.609,4.201l3.122,10.108L50.243,56.151z
+							 M87.146,67.014l-3.455,2.899l6.273-4.34L87.146,67.014z M92.026,62.921l-4.399,3.69l3.196-1.635L92.026,62.921z
+							 M92.344,62.654l-1.187,2.028l5.863-5.244l-1.538,0.583L92.344,62.654z M93.43,60.799l-0.876,1.495l2.531-2.123L93.43,60.799z
+							 M97.631,53.621l-4.089,6.986l1.868-0.708l4.42-3.708l-0.117-0.099l0.054,0.007C99.109,55.33,98.372,54.475,97.631,53.621z
+							 M99.348,56.777l-3.54,2.971l1.5-0.569L99.348,56.777z M99.946,56.289l-2.349,2.765l3.702-1.615L99.946,56.289z
+							 M101.56,57.477l1.423,1.209l1.797-1.797l-1.442-0.187L101.56,57.477z M100.164,56.29l1.277,1.086l1.627-0.709L100.164,56.29z
+							 M105.08,56.787l3.049,0.395l1.187-2.21l-3.239,0.819L105.08,56.787z M103.586,56.593l1.318,0.171l0.906-0.906l-1.283,0.325
+							L103.586,56.593z M100.052,56.135l3.266,0.423l1.164-0.508l1.521-0.385l1.296-1.29c0.046-0.022,1.322-0.638,3.155-1.524
+							l1.565-2.916l2.457,0.763l6.838-7.445l5.98-3.38l1.957-3.963l-1.73-5.402l0.013-0.025l4.114-8.168l-0.443-1.541l-7.442,2.815
+							l-0.032-0.042l-5.188-6.98l-0.803,0.514l0.251,8.597l-0.035,0.021l-2.186,1.293l1.485,1.935l-5.007,3.929l-4.858,4.098
+							l-1.669,6.683l-3.051,8.008L100.052,56.135z M97.705,53.493c1.031,1.188,1.906,2.208,2.224,2.578l2.616-4.487l3.043-7.99
+							l1.555-6.223L97.705,53.493z M107.37,54.496l-1.102,1.102l3.137-0.794l0.936-1.743
+							C108.728,53.842,107.576,54.397,107.37,54.496z M110.556,52.958l-0.967,1.8l1.513-0.382l2.774-3.024
+							C112.682,51.931,111.54,52.482,110.556,52.958z M112.088,50.103l-1.42,2.645c1.032-0.499,2.225-1.075,3.466-1.676l0.238-0.26
+							L112.088,50.103z M114.935,50.84l1.52,0.472l2.57-2.455C117.729,49.486,116.316,50.171,114.935,50.84z M114.52,50.858
+							l-0.044,0.049c0.025-0.013,0.052-0.025,0.078-0.038L114.52,50.858z M114.625,50.744l0.113,0.035
+							c1.565-0.758,3.177-1.54,4.618-2.24l6.927-6.618l0.901-1.826l-5.792,3.274L114.625,50.744z M126.103,42.288l-6.334,6.05
+							c2.38-1.157,4.207-2.053,4.422-2.178L126.103,42.288z M127.401,39.973l-0.822,1.666l3.078-2.94L127.401,39.973z
+							 M129.314,36.101l-1.802,3.649l2.516-1.422L129.314,36.101z M129.402,35.921l0.685,2.134L130.845,33L129.402,35.921z
+							 M127.672,30.519l1.669,5.21l1.572-3.183l1.261-8.405l-0.469-1.629L127.672,30.519z M132.267,24.465l-1.15,7.67l2.12-4.295
+							L132.267,24.465z M75.658,30.777l5.921,0.276l4.554-0.678L75.658,30.777z M61.566,30.26l5.238,0.718l5.578-0.214L61.566,30.26
+							z M60.02,30.048l14,0.653l13.378-0.514l11.175-1.664c2.418-0.836,5.407-1.857,7.408-2.496l1.244-2.102l-8.222-2.641
+							L74.79,19.383l-24.892,1.904l-7.913,3.882l11.498,3.983L60.02,30.048z M97.858,28.77l-9.188,1.368l5.922-0.227
+							C94.796,29.839,96.114,29.375,97.858,28.77z M55.455,29.835l3.009,0.14l-4.308-0.59L55.455,29.835z M47.921,28.389
+							l4.854,0.666l-10.168-3.522L47.921,28.389z M105.874,26.206c-1.725,0.554-4.182,1.388-6.552,2.205l5.755-0.857L105.874,26.206
+							z M114.157,25.121l0.095,2.605l1.311-0.776L114.157,25.121z M114.149,24.88l1.536,1.999l2.164-1.281l-0.246-8.431
+							l-1.446,0.926l-2.11,3.97L114.149,24.88z M113.203,23.649l0.799,1.04l-0.087-2.379L113.203,23.649z M131.798,22.328
+							l0.426,1.48l0.497-3.311L131.798,22.328z M118.661,16.49l5.15,6.93l7.355-2.781l-0.605-2.104l-4.726-3.354
+							c-1.729-0.003-3.616-0.002-5.143,0.009L118.661,16.49z M131.337,20.723l0.404,1.406l0.97-1.926L131.337,20.723z
+							 M113.953,19.503l0.083,2.28l1.88-3.537L113.953,19.503z M130.745,18.664l0.553,1.925l1.409-0.533L130.745,18.664z
+							 M126.078,15.181l4.422,3.138l-0.898-3.125C128.716,15.188,127.453,15.183,126.078,15.181z M117.553,15.465l-1.263,2.376
+							l1.308-0.837L117.553,15.465z M117.692,15.419l0.044,1.497l0.725-0.464L117.692,15.419z M117.741,15.251l0.837,1.126
+							l1.852-1.185C119.095,15.202,118.073,15.22,117.741,15.251z M123.404,13.454l-2.489,1.593c1.462-0.01,3.189-0.009,4.723-0.008
+							L123.404,13.454z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="90.807,65.054 87.897,57.326 87.988,57.317 99.932,56.121 99.946,56.261 88.092,57.447 90.938,65.004 						
+							"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="82.519,70.945 82.445,70.881 72.849,62.586 59.073,64.966 59.109,64.855 61.427,57.615 61.561,57.658 
+							59.278,64.788 72.89,62.437 82.462,70.712 87.93,57.36 88.059,57.413 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M75.237,83.902l0.068-0.167l2.808-6.919l5.534,3.076L75.237,83.902z M78.183,77.015l-2.681,6.606l7.84-3.739
+							L78.183,77.015z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M61.533,85.101l5.642-4.873l0.161-4.533l0.075,0.008l10.744,1.143l-0.016,0.14L67.471,75.85l-0.152,4.272l4.76-3.389
+							l0.036,0.075l3.298,6.882l11.906-0.123l-3.873-3.63l0.096-0.103l4.127,3.87l-0.174,0.002L75.48,83.831l0.033,0.068
+							l-0.155-0.066L61.533,85.101z M67.257,80.343l-5.301,4.579l13.134-1.205L67.257,80.343z M67.386,80.246l7.839,3.376
+							l-3.201-6.678L67.386,80.246z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <rect
+                        x="63.369"
+                        y="75.975"
+                        transform="matrix(0.1184 -0.993 0.993 0.1184 -23.3195 133.3497)"
+                        width="0.14"
+                        height="7.666"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M75.258,90.676l0.005-0.874l-9.262-0.211l-0.98,0.602l-0.411-0.634l-6.883-0.157l4.026-4.505l0.05,0.077l2.884,4.446
+							l1.276,0.029l9.477-5.813v0.126l-0.036,5.903l1.296,0.029l10.858-6.175l0.007,0.113c0.003,0.06,0.314,5.93,0.404,6.374
+							l0.018,0.086l-11.252-0.257L75.258,90.676z M75.402,89.804l-0.004,0.629l1.063-0.604L75.402,89.804z M64.779,89.562
+							l0.285,0.438l0.68-0.416L64.779,89.562z M76.972,89.701l10.848,0.247c-0.098-0.786-0.346-5.387-0.389-6.194L76.972,89.701z
+							 M66.221,89.455l9.042,0.207l0.035-5.774L66.221,89.455z M58.033,89.268l6.484,0.148l-2.782-4.29L58.033,89.268z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        style="display: none"
+                        d="M65.042,90.097"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="72.058,76.909 72.046,76.769 80.922,75.981 67.404,75.843 67.405,75.703 82.339,75.855 82.344,75.995 						
+							"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="63.144,95.522 57.889,89.452 55.73,92.877 55.611,92.802 57.871,89.218 57.933,89.289 63.094,95.251 
+							64.976,90.073 65.108,90.12 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M75.187,96.588l-0.074-0.007l-12.291-1.152l12.579-4.979l-0.003,0.107L75.187,96.588z M63.417,95.344l11.635,1.091
+							l0.203-5.776L63.417,95.344z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M82.27,103.202l-0.051-0.131l6.957-2.727l-2.712-5.732l-0.092,0.057l0.047-0.152l-0.032-0.068l0.055-0.003L87.834,90
+							l0.133,0.041l-1.351,4.313l9.356-5.726l-2.311,5.498l-0.043,0.003l-7.018,0.445l2.766,5.846l-0.07,0.027L82.27,103.202z
+							 M95.676,88.974l-8.904,5.449l6.795-0.432L95.676,88.974z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M72.613,119.959c-0.027,0-0.046-0.002-0.055-0.006l0.055-0.129c0.007,0.001,0.017,0.002,0.03,0.002
+							c0.236,0,1.467-0.223,3.101-0.54l-8.745-1.785l0.038-0.08l1.877-4.024l-5.017-6.373l0.015-0.038l1.745-4.315l-5.515-2.87
+							l0.042-0.064l2.954-4.504l2.682,7.406l-0.001,0.002l3.251,10.752l-0.011,0.024l-1.857,3.983l8.9,1.816
+							c0.781-0.153,1.64-0.324,2.517-0.502l1.862-4.86l2.503,4.102l-0.097,0.021c-0.657,0.138-2.343,0.49-4.166,0.86l-0.376,0.98
+							l-2.243-0.457C74.374,119.696,72.927,119.959,72.613,119.959z M76.458,119.289l1.798,0.367l0.302-0.787
+							C77.858,119.01,77.141,119.154,76.458,119.289z M80.509,114.17l-1.729,4.511c1.364-0.277,2.764-0.566,3.98-0.821
+							L80.509,114.17z M64.056,107l4.764,6.052l-3.085-10.205L64.056,107z M60.343,99.747l5.275,2.745l-2.516-6.95L60.343,99.747z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="60.174,99.789 57.812,89.35 57.948,89.319 60.31,99.758 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M72.557,119.982l-0.033-0.06l-3.652-6.613l11.817,0.642l-0.152,0.115c-0.305,0.23-7.464,5.647-7.919,5.884
+							L72.557,119.982z M69.117,113.464l3.495,6.327c0.755-0.482,6.657-4.94,7.688-5.72L69.117,113.464z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="80.439,114.053 74.494,106.252 69.05,113.428 68.939,113.344 74.494,106.021 74.55,106.094 80.55,113.969 
+													"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="74.417,106.241 74.424,106.132 75.053,96.452 75.108,96.442 86.22,94.489 75.305,90.621 75.352,90.488 
+							86.769,94.534 86.506,94.581 75.186,96.571 74.572,106.032 82.219,103.071 82.27,103.202 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M80.383,114.26l1.786-11.101l-7.098-6.598l0.096-0.102l7.056,6.561l4.209-8.541l0.125,0.063l-4.232,8.59l3.225,4.722
+							L80.383,114.26z M82.285,103.321l-1.68,10.441l4.77-5.916L82.285,103.321z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="74.809,106.338 74.468,106.202 65.718,102.702 65.77,102.571 74.179,105.935 63.071,95.437 63.167,95.336 
+													"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M74.032,132.543l-0.037-0.023l-7.361-4.678l0.5-1.456c-1.892-0.121-3.179-0.219-3.267-0.263l0.063-0.125
+							c0.112,0.04,1.366,0.132,3.251,0.252l1.121-3.261l0.133,0.045l-1.109,3.226c4.417,0.279,12.113,0.7,16.845,0.949l0.17,0.01
+							l-0.127,0.113l-5.646,5.01l1.485-3.441L74.032,132.543z M66.802,127.783l7.231,4.596l6.322-3.824l-1.409,3.264l5.047-4.479
+							c-1.964-0.104-11.502-0.611-16.713-0.944L66.802,127.783z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M72.755,129.097l-0.074-0.1l-4.458-6.066l0.152,0.012l6.374,0.48l-6.117-4.356l-4.987,5.214l-0.102-0.098l5.071-5.3
+							l6.4,4.558l6.053-0.495l1.737-5.061l0.133,0.045l-1.767,5.148l-0.046,0.003l-6.083,0.497L72.755,129.097z M68.516,123.093
+							l4.205,5.722l2.172-5.241L68.516,123.093z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="75.047,123.557 74.942,123.466 78.3,119.63 78.353,119.69 81.172,122.966 81.067,123.057 78.3,119.843 						
+							"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="82.292,130.608 80.158,128.78 80.25,128.675 82.384,130.503 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        style="display: none"
+                        d="M69.745,135.436"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M70.024,135.789l-0.363-1.926l-3.738-0.743l3.538-0.318l-0.22-1.167l0.138-0.025l0.223,1.18l4.655-0.419l-2.249,1.817
+							l7.018,1.395l2.186-3.993l0.123,0.066l-2.234,4.085l-0.051-0.011l-7.183-1.428L70.024,135.789z M69.809,133.892l0.309,1.641
+							l1.569-1.267L69.809,133.892z M69.781,133.744l2.047,0.407l1.981-1.6l-4.183,0.376L69.781,133.744z M66.904,133.173
+							l2.729,0.542l-0.146-0.774L66.904,133.173z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M79.001,135.776l-0.06-0.702c-4.293,0.333-8.548,0.657-8.871,0.657h-0.022l-0.018-0.013l-2.186-1.503l-3.573,0.972
+							l2.132-2.132l1.466,1.008l6.069-1.65l-1.331-3.603l0.161,0.083l6.008,3.118l5.457,0.692l0.032,1.02l4.457,0.581l-0.666,0.053
+							c-0.202,0.017-1.704,0.136-3.761,0.297l0.02,0.593l-0.938-0.521c-0.918,0.072-1.914,0.149-2.935,0.23L79.001,135.776z
+							 M68.023,134.168l2.07,1.423c0.45-0.012,4.625-0.33,8.837-0.656l-0.152-1.784l-4.74-0.618L68.023,134.168z M79.081,135.063
+							l0.041,0.482l0.994-0.564C79.773,135.01,79.427,135.036,79.081,135.063z M83.632,134.708l0.537,0.298l-0.011-0.34
+							C83.987,134.68,83.812,134.693,83.632,134.708z M78.92,133.169l0.149,1.754c0.446-0.034,0.893-0.069,1.334-0.104l1.555-0.882
+							l-0.878-0.487L78.92,133.169z M66.422,133.237l-1.677,1.677l2.95-0.802L66.422,133.237z M82.102,134.017l-1.369,0.776
+							c0.839-0.065,1.657-0.13,2.425-0.189L82.102,134.017z M82.244,133.936l1.166,0.648c0.254-0.02,0.503-0.039,0.743-0.058
+							l-0.021-0.678l-1.408-0.184L82.244,133.936z M84.273,133.867l0.021,0.647c1.332-0.105,2.429-0.19,3.087-0.242L84.273,133.867z
+							 M81.457,133.5l0.644,0.357l0.393-0.223L81.457,133.5z M82.926,133.55l1.201,0.157l-0.026-0.823L82.926,133.55z
+							 M81.125,133.315l1.57,0.204l1.254-0.711l-4.841-0.613L81.125,133.315z M78.907,133.026l1.841,0.239l-1.91-1.061
+							L78.907,133.026z M74.084,132.397l4.682,0.61l-0.075-0.884l-5.824-3.022L74.084,132.397z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        style="display: none"
+                        d="M66.414,133.146"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M75.026,143.959c-0.275,0-6.653-0.605-12.432-1.161l-4.834,0.098l0.293-0.534c-2.59-0.25-4.499-0.436-4.752-0.46
+							l-0.104-0.01l0.05-0.093l3.005-5.625l0.063,0.036l3.894,2.201l1.664-4.196l0.051,0.005l16.863,1.35l-4.791-3.05l0.075-0.117
+							l5.267,3.351l-17.373-1.39l-1.589,4.008l0.035-0.017l-0.103,0.188l-0.028,0.07l-0.008-0.005l-1.993,3.635
+							c1.316,0.127,2.798,0.27,4.322,0.416l33.805-0.681l-0.642,0.151c-0.422,0.1-19.905,1.76-20.734,1.83
+							C75.029,143.959,75.027,143.959,75.026,143.959z M63.807,142.773c5.423,0.521,10.968,1.046,11.213,1.046
+							c0.001,0,0.002,0,0.002,0c0.165-0.014,14.047-1.197,18.991-1.654L63.807,142.773z M58.205,142.376L58,142.751l3.391-0.068
+							C60.269,142.575,59.191,142.471,58.205,142.376z M53.565,141.786c0.623,0.061,2.346,0.228,4.562,0.441l1.951-3.559
+							L53.565,141.786z M56.308,136.367l-2.837,5.309l6.622-3.17L56.308,136.367z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="65.374,143.711 60.077,138.443 70.618,138.316 79.739,139.815 87.876,137.311 87.901,137.324 92,139.435 
+							96.258,137.956 96.305,138.089 91.989,139.588 91.962,139.574 87.863,137.462 79.749,139.958 79.733,139.956 70.608,138.456 
+							60.412,138.58 65.472,143.611 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="91.939,139.553 88.112,134.483 87.94,137.39 87.799,137.383 87.994,134.094 88.109,134.247 92.05,139.469 
+													"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M75.014,143.989l-0.469-0.585l-8.513-0.262l-0.587,0.596l-0.039-0.009l-2.869-0.693l-4.684-0.148l-6.019-2.438
+							l0.043-0.133l10.68,2.58l3.417,0.105l4.569-4.638l-0.526-2.614l-10.086,2.926l0.269-0.219l4.265-3.461l0.088,0.109
+							l-3.996,3.242l9.568-2.775l0.548,2.724l8.445-2.727l0.014,0.081l0.66,4.085l4.44-4.698l0.049,0.03l3.677,2.292l-0.023,0.055
+							l-2.659,6.152l6.782-1.466l-0.137-2.675l0.087,0.018l6.912,1.318l-0.337,0.072l-6.38,1.378l0.035,0.684l-0.141,0.008
+							l-0.033-0.662l-6.856,1.48l-0.02,0.046l-0.057-0.039l-9.467-0.29L75.014,143.989z M74.729,143.409l0.304,0.381l0.422-0.358
+							L74.729,143.409z M75.822,143.305l9.102,0.279l-5.17-3.605l-0.057,0.06l-0.003-0.018L75.822,143.305z M63.22,143.056
+							l2.181,0.527l0.44-0.446L63.22,143.056z M79.851,139.876l5.276,3.679l2.654-6.141l-3.526-2.197L79.851,139.876z
+							 M74.615,143.267l0.999,0.03l4.056-3.439l-0.663-4.105l-8.268,2.669L74.615,143.267z M66.165,143.008l8.266,0.254l-3.817-4.77
+							L66.165,143.008z M57.895,142.754l3.98,0.122l-9.112-2.201L57.895,142.754z M92.068,139.597l0.126,2.474l6.021-1.302
+							L92.068,139.597z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="97.706,87.42 87.127,83.578 87.492,83.566 95.343,83.329 82.304,75.986 82.372,75.864 95.849,83.454 
+							87.862,83.695 97.753,87.289 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        style="display: none"
+                        d="M74.947,90.501"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        class="shard"
+                        d="M54.139,88.662l-0.138-0.025l0.323-1.756l-1.609,0.39l-0.033-0.137l1.67-0.404l0.73-3.963l0.076,0.025l6.842,2.229
+							l-0.24,0.059l-7.287,1.765L54.139,88.662z M55.191,82.95l-0.69,3.743l6.986-1.691L55.191,82.95z"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="45.661,58.956 45.627,58.89 43.799,55.385 43.923,55.321 45.717,58.76 50.149,56.131 50.22,56.251 						"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <polygon
+                        class="shard"
+                        points="53.068,59.46 42.525,57.702 42.507,57.679 36.641,49.221 36.756,49.141 42.606,57.575 53.091,59.322 						
+							"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g>
+                  <g>
+                    <g>
+                      <rect
+                        x="20.361"
+                        y="28.768"
+                        transform="matrix(0.9056 -0.4242 0.4242 0.9056 -13.6649 12.1381)"
+                        width="0.14"
+                        height="15.986"
+                      />
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
 
+    <div class="title-overlay" id="titleOverlay">
+      <h1>Lukas Carpenter</h1>
       <p>Web Developer</p>
-    </header>
+    </div>
+    <div class="content">
+      <header>
+        <h1>Lukas Carpenter</h1>
+        <p>Web Developer</p>
+      </header>
     <main>
       <section>
         <h2>About</h2>
@@ -179,54 +4284,105 @@
     </main>
     <footer><p>Lukas' Trophy site 2026</p></footer>
     <script>
-      const heading = document.querySelector("h1");
-      const header = document.querySelector("header");
-      const main = document.querySelector("main");
-      const skillItems = document.querySelectorAll("li");
+      const heading = document.querySelector('h1');
+      const scene = document.getElementById('scene');
+      const trophyContainer = document.getElementById('trophyContainer');
+      const skillItems = document.querySelectorAll('li');
+      const shards = [];
 
-      // Store random explosion values and initial state on each skill item
-      skillItems.forEach(function (item) {
+      function processTrophy() {
+        const svg = trophyContainer.querySelector('svg');
+        if (!svg) {
+          console.log('No SVG found');
+          return;
+        }
+        const shapes = svg.querySelectorAll('path, polygon, circle, ellipse, rect');
+        shapes.forEach(function(shape) {
+          shape.classList.add('shard');
+          const angle = Math.random() * Math.PI * 2;
+          const distance = 100 + Math.random() * 300;
+          shape.dataset.x = Math.cos(angle) * distance;
+          shape.dataset.y = Math.sin(angle) * distance;
+          shape.dataset.rotation = (Math.random() - 0.5) * 720;
+          shape.dataset.scale = 0.5 + Math.random() * 1;
+          shards.push(shape);
+        });
+        console.log('Processed ' + shards.length + ' shards');
+      }
+      // Run when page is fully loaded
+window.addEventListener('load', function() {
+  processTrophy();
+});
+      heading.addEventListener('click', function() {
+        heading.classList.toggle('red-text');
+      });
+      skillItems.forEach(function(item) {
         item.dataset.x = (Math.random() - 0.5) * 200;
         item.dataset.y = (Math.random() - 0.5) * 200;
         item.dataset.rotation = (Math.random() - 0.5) * 90;
-        item.dataset.exploded = "false";
-      });
-
-      // Click listener for heading
-      heading.addEventListener("click", function () {
-        heading.classList.toggle("red-text");
-      });
-
-      skillItems.forEach(function (item) {
-        item.addEventListener("click", function () {
+        item.dataset.exploded = 'false';
+        
+        item.addEventListener('click', function() {
           const x = parseFloat(item.dataset.x);
           const y = parseFloat(item.dataset.y);
           const rotation = parseFloat(item.dataset.rotation);
-
-          if (item.dataset.exploded === "false") {
-            // Explode it
+          
+          if (item.dataset.exploded === 'false') {
             item.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
-            item.dataset.exploded = "true";
+            item.dataset.exploded = 'true';
           } else {
-            // Return to original position
-            item.style.transform = "translate(0px, 0px) rotate(0deg)";
-            item.dataset.exploded = "false";
-          }
-        });
+            item.style.transform = 'translate(0px, 0px) rotate(0deg)';
+            item.dataset.exploded = 'false';
+      }
       });
-
-      // Scroll listener
-      window.addEventListener("scroll", function () {
-        const scrolled = window.scrollY;
-        const maxScroll = document.body.scrollHeight - window.innerHeight;
-        const progress = scrolled / maxScroll;
-
-        if (progress <= 0.3) {
-          header.style.opacity = 1 - progress / 0.3;
-        } else {
-          header.style.opacity = 0;
-        }
       });
+      // Scroll animation
+window.addEventListener('scroll', function() {
+  const scrolled = window.scrollY;
+  const maxScroll = window.innerHeight;
+  const progress = Math.min(scrolled / maxScroll, 1);
+  
+  // Calculate explosion (happens between 5% and 50% scroll)
+  let explosion = 0;
+  if (progress > 0.05 && progress <= 0.5) {
+    explosion = (progress - 0.05) / 0.45;
+  } else if (progress > 0.5) {
+    explosion = 1;
+  }
+  
+  // Apply transforms to each shard
+  shards.forEach(function(shard) {
+  const x = parseFloat(shard.dataset.x) || 0;
+  const y = parseFloat(shard.dataset.y) || 0;
+  const rotation = parseFloat(shard.dataset.rotation) || 0;
+  const scale = parseFloat(shard.dataset.scale) || 1;
+  
+  const currentX = x * explosion;
+  const currentY = y * explosion;
+  const currentRotation = rotation * explosion;
+  const currentScale = 1 + (scale - 1) * explosion;
+  
+  shard.style.transform = `
+    translate(${currentX}px, ${currentY}px)
+    rotate(${currentRotation}deg)
+    scale(${currentScale})
+  `;
+  
+  // Fade out shards that are scaling down
+  if (currentScale < 0.8) {
+    shard.style.opacity = 0.3 + currentScale * 0.5;
+  } else {
+    shard.style.opacity = 1;
+  }
+});
+  
+  // Fade out scene after 60% scroll
+  if (progress > 0.6) {
+    scene.classList.add('faded');
+  } else {
+    scene.classList.remove('faded');
+  }
+});
     </script>
   </body>
 </html>
