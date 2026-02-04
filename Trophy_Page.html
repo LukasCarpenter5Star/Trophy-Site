@@ -11,188 +11,284 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --gold: #daa520;
+        --bg: #000;
+        --text: #e8e8e8;
+        --text-dim: #888;
+        --surface: #1a1a1a;
+      }
       .scene {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: radial-gradient(
-      ellipse at 50% 45%,
-      #333 0%,
-                      #1a1a1a 40%,
-                      #000 100%
-                    );
-                    z-index: 10;
-                    transition: opacity 0.4s;
-                  }
-                   main {
-                   position: relative;
-                   z-index: 20;
-                  }
-                  .content {
-  position: relative;
-  z-index: 20;
-  margin-top: 100vh;
-  background: var(--bg);
-}
-                  .scene.faded {
-                    opacity: 0;
-                    pointer-events: none;
-                  }
-                  .trophy-container {
-                    width: 300px;
-                    height: 400px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  }
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(
+          ellipse at 50% 45%,
+          #333 0%,
+          #1a1a1a 40%,
+          #000 100%
+        );
+        z-index: 10;
+        transition: opacity 0.4s;
+      }
 
-                  .trophy-container svg {
-                    width: 100%;
-                    height: 100%;
-                    overflow: visible;
-                  }
+      main {
+        position: relative;
+        z-index: 20;
+      }
 
-                  .shard {
-                    fill: var(--gold);
-                    stroke: #f4d03f;
-                    stroke-width: 0.5;
-                    transition:
-                      transform 0.1s ease-out,
-                      opacity 0.2s ease;
-                  }
-                  :root {
-                    --gold: #daa520;
-                    --bg: #000;
-                    --text: #e8e8e8;
-                    --text-dim: #888;
-                    --surface: #1a1a1a;
-                  }
-                  * {
-                    box-sizing: border-box;
-                    margin: 0;
-                    padding: 0;
-                  }
-                  body {
-                    background: var(--bg);
-                    background: linear-gradient(to bottom, #333 0%, var(--bg) 100%);
-                    color: var(--text);
-                    padding: 20px;
-                    font-family: "Inter", sans-serif;
-                    line-height: 1.6;
-                  }
-                  h1,
-                  h2 {
-                    color: var(--gold);
-                    font-family: "Audiowide", cursive;
-                  }
-                  h1 {
-                    font-size: 2.5rem;
-                    margin-bottom: 0.5rem;
-                    animation: glow 2s ease-in-out infinite;
-                  }
-                  h2 {
-                    font-size: 1.5rem;
-                    position: relative;
-                    left: 20px;
-                  }
-                  header {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              padding: 2rem;
-              margin: 2rem;
-              transition: opacity 0.3s;
-            }
-                  }
-                  header p {
-                    color: var(--text-dim);
-                    text-transform: uppercase;
-                    letter-spacing: 3px;
-                  }
-                  p {
-                    margin-bottom: 1rem;
-                  }
+      .content {
+        position: relative;
+        z-index: 20;
+        margin-top: 100vh;
+      }
 
-                  section {
-                    margin-bottom: 2rem;
-                  }
-                  .gold {
-                    color: var(--gold);
-                  }
-                  ul {
-                    display: grid;
-                    list-style: none;
-                    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-                    gap: 1rem;
-                  }
-                  li {
-                    background: var(--surface);
-                    padding: 1rem;
-                    text-align: center;
-                    border-radius: 5px;
-                    transition: transform 0.3s;
-                  }
+      .scene.faded {
+        opacity: 0;
+        pointer-events: none;
+      }
 
-                  li:hover {
-                    transform: translateY(-5px);
-                  }
-                  a {
-                    display: inline-block;
-                    background: var(--surface);
-                    padding: 10px 20px;
-                    text-decoration: none;
-                    color: var(--gold);
-                    border: 2px solid var(--gold);
-                    border-radius: 5px;
-                    transition: all 0.3s;
-                  }
-                  a:hover {
-                    background: var(--gold);
-                    color: var(--bg);
-                  }
-                  .contact-links {
-                    display: flex;
-                    gap: 1rem;
-                    justify-content: center;
-                  }
-                  .red-text {
-                    color: red;
-                  }
-                  header.scrolled {
-                    opacity: 0.5;
-                  }
-                  @keyframes glow {
-                    0%,
-                    100% {
-                      text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
-                    }
-                    50% {
-                      text-shadow: 0 0 20px rgba(218, 165, 32, 0.8);
-                    }
-                  }
-                  @media (max-width: 600px) {
-                    h1 {
-                      font-size: 1.8rem;
-                    }
-                    body {
-                      padding: 10px;
-                    }
-                    header {
-                      padding: 1rem;
-                      margin: 1rem;
-                    }
-                  }
+      .trophy-container {
+        width: 300px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .trophy-container svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+
+      .shard {
+        fill: var(--gold);
+        stroke: #f4d03f;
+        stroke-width: 0.5;
+        transition:
+          transform 0.1s ease-out,
+          opacity 0.2s ease;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--bg);
+        background: linear-gradient(to bottom, #333 0%, var(--bg) 100%);
+        color: var(--text);
+        padding: 20px;
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2 {
+        color: var(--gold);
+        font-family: "Audiowide", cursive;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        animation: glow 2s ease-in-out infinite;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        position: relative;
+        left: 20px;
+      }
+
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        margin: 2rem;
+        transition:
+          opacity 0.6s,
+          transform 0.6s;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      header.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      header p {
+        color: var(--text-dim);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      section {
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s,
+          transform 0.6s;
+      }
+
+      section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .gold {
+        color: var(--gold);
+      }
+
+      ul {
+        display: grid;
+        list-style: none;
+        grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+        gap: 1rem;
+      }
+
+      li {
+        background: var(--surface);
+        padding: 1rem;
+        text-align: center;
+        border-radius: 5px;
+        transition: transform 0.3s;
+      }
+
+      li:hover {
+        transform: translateY(-5px);
+      }
+
+      a {
+        display: inline-block;
+        background: var(--surface);
+        padding: 10px 20px;
+        text-decoration: none;
+        color: var(--gold);
+        border: 2px solid var(--gold);
+        border-radius: 5px;
+        transition: all 0.3s;
+      }
+
+      a:hover {
+        background: var(--gold);
+        color: var(--bg);
+      }
+
+      .contact-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .red-text {
+        color: red;
+      }
+
+      header.scrolled {
+        opacity: 0.5;
+      }
+
+      .scroll-runway {
+        height: 100vh;
+      }
+
+      .scroll-prompt {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        z-index: 30;
+        transition: opacity 0.5s;
+      }
+
+      .scroll-prompt.hidden {
+        opacity: 0;
+      }
+
+      .scroll-prompt span {
+        font-family: "Tektur", sans-serif;
+        font-size: 0.85rem;
+        color: var(--text-dim);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+
+      .scroll-arrow {
+        width: 18px;
+        height: 18px;
+        border-right: 2px solid var(--gold);
+        border-bottom: 2px solid var(--gold);
+        transform: rotate(45deg);
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: rotate(45deg) translateY(0);
+        }
+        50% {
+          transform: rotate(45deg) translateY(8px);
+        }
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+        }
+        50% {
+          text-shadow: 0 0 20px rgba(218, 165, 32, 0.8);
+        }
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+        body {
+          padding: 10px;
+        }
+        header {
+          padding: 1rem;
+          margin: 1rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="scene" id="scene">
       <div class="trophy-container" id="trophyContainer">
-              <svg
+        <svg
           version="1.1"
           id="Layer_2"
           xmlns="http://www.w3.org/2000/svg"
@@ -4211,8 +4307,7 @@
                     <g>
                       <polygon
                         class="shard"
-                        points="53.068,59.46 42.525,57.702 42.507,57.679 36.641,49.221 36.756,49.141 42.606,57.575 53.091,59.322 						
-							"
+                        points="53.068,59.46 42.525,57.702 42.507,57.679 36.641,49.221 36.756,49.141 42.606,57.575 53.091,59.322 						"
                       />
                     </g>
                   </g>
@@ -4239,15 +4334,17 @@
       </div>
     </div>
 
+    <div class="scroll-runway"></div>
+    <div class="scroll-prompt" id="scrollPrompt">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+
     <div class="title-overlay" id="titleOverlay">
       <h1>Lukas Carpenter</h1>
       <p>Web Developer</p>
     </div>
-    <div class="content">
-      <header>
-        <h1>Lukas Carpenter</h1>
-        <p>Web Developer</p>
-      </header>
+
     <main>
       <section>
         <h2>About</h2>
@@ -4258,6 +4355,7 @@
           time spent learning and every moment along the way.
         </p>
       </section>
+
       <section>
         <h2>Skills</h2>
         <ul>
@@ -4284,21 +4382,24 @@
     </main>
     <footer><p>Lukas' Trophy site 2026</p></footer>
     <script>
-      const heading = document.querySelector('h1');
-      const scene = document.getElementById('scene');
-      const trophyContainer = document.getElementById('trophyContainer');
-      const skillItems = document.querySelectorAll('li');
+      const scrollPrompt = document.getElementById("scrollPrompt");
+      const heading = document.querySelector("h1");
+      const scene = document.getElementById("scene");
+      const trophyContainer = document.getElementById("trophyContainer");
+      const skillItems = document.querySelectorAll("li");
       const shards = [];
 
       function processTrophy() {
-        const svg = trophyContainer.querySelector('svg');
+        const svg = trophyContainer.querySelector("svg");
         if (!svg) {
-          console.log('No SVG found');
+          console.log("No SVG found");
           return;
         }
-        const shapes = svg.querySelectorAll('path, polygon, circle, ellipse, rect');
-        shapes.forEach(function(shape) {
-          shape.classList.add('shard');
+        const shapes = svg.querySelectorAll(
+          "path, polygon, circle, ellipse, rect",
+        );
+        shapes.forEach(function (shape) {
+          shape.classList.add("shard");
           const angle = Math.random() * Math.PI * 2;
           const distance = 100 + Math.random() * 300;
           shape.dataset.x = Math.cos(angle) * distance;
@@ -4307,82 +4408,122 @@
           shape.dataset.scale = 0.5 + Math.random() * 1;
           shards.push(shape);
         });
-        console.log('Processed ' + shards.length + ' shards');
+        console.log("Processed " + shards.length + " shards");
       }
       // Run when page is fully loaded
-window.addEventListener('load', function() {
-  processTrophy();
-});
-      heading.addEventListener('click', function() {
-        heading.classList.toggle('red-text');
+      // Run when page is fully loaded
+      window.addEventListener("load", function () {
+        processTrophy();
+
+        // Section reveal on scroll
+        const sections = document.querySelectorAll("section, header");
+        const sectionObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              console.log(
+                "Observed:",
+                entry.target.tagName,
+                "isIntersecting:",
+                entry.isIntersecting,
+              );
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+
+        sections.forEach(function (section) {
+          sectionObserver.observe(section);
+        });
       });
-      skillItems.forEach(function(item) {
+      heading.addEventListener("click", function () {
+        heading.classList.toggle("red-text");
+      });
+      skillItems.forEach(function (item) {
         item.dataset.x = (Math.random() - 0.5) * 200;
         item.dataset.y = (Math.random() - 0.5) * 200;
         item.dataset.rotation = (Math.random() - 0.5) * 90;
-        item.dataset.exploded = 'false';
-        
-        item.addEventListener('click', function() {
+        item.dataset.exploded = "false";
+
+        item.addEventListener("click", function () {
           const x = parseFloat(item.dataset.x);
           const y = parseFloat(item.dataset.y);
           const rotation = parseFloat(item.dataset.rotation);
-          
-          if (item.dataset.exploded === 'false') {
+
+          if (item.dataset.exploded === "false") {
             item.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
-            item.dataset.exploded = 'true';
+            item.dataset.exploded = "true";
           } else {
-            item.style.transform = 'translate(0px, 0px) rotate(0deg)';
-            item.dataset.exploded = 'false';
-      }
-      });
+            item.style.transform = "translate(0px, 0px) rotate(0deg)";
+            item.dataset.exploded = "false";
+          }
+        });
       });
       // Scroll animation
-window.addEventListener('scroll', function() {
-  const scrolled = window.scrollY;
-  const maxScroll = window.innerHeight;
-  const progress = Math.min(scrolled / maxScroll, 1);
-  
-  // Calculate explosion (happens between 5% and 50% scroll)
-  let explosion = 0;
-  if (progress > 0.05 && progress <= 0.5) {
-    explosion = (progress - 0.05) / 0.45;
-  } else if (progress > 0.5) {
-    explosion = 1;
-  }
-  
-  // Apply transforms to each shard
-  shards.forEach(function(shard) {
-  const x = parseFloat(shard.dataset.x) || 0;
-  const y = parseFloat(shard.dataset.y) || 0;
-  const rotation = parseFloat(shard.dataset.rotation) || 0;
-  const scale = parseFloat(shard.dataset.scale) || 1;
-  
-  const currentX = x * explosion;
-  const currentY = y * explosion;
-  const currentRotation = rotation * explosion;
-  const currentScale = 1 + (scale - 1) * explosion;
-  
-  shard.style.transform = `
-    translate(${currentX}px, ${currentY}px)
-    rotate(${currentRotation}deg)
-    scale(${currentScale})
-  `;
-  
-  // Fade out shards that are scaling down
-  if (currentScale < 0.8) {
-    shard.style.opacity = 0.3 + currentScale * 0.5;
-  } else {
-    shard.style.opacity = 1;
-  }
-});
-  
-  // Fade out scene after 60% scroll
-  if (progress > 0.6) {
-    scene.classList.add('faded');
-  } else {
-    scene.classList.remove('faded');
-  }
-});
+      window.addEventListener("scroll", function () {
+        const scrolled = window.scrollY;
+        const maxScroll = window.innerHeight;
+        const progress = Math.min(scrolled / maxScroll, 1);
+
+        // Calculate explosion (happens between 5% and 50% scroll)
+        let explosion = 0;
+        if (progress > 0.05 && progress <= 0.5) {
+          explosion = (progress - 0.05) / 0.45;
+        } else if (progress > 0.5) {
+          explosion = 1;
+        }
+
+        // Apply transforms to each shard
+        shards.forEach(function (shard) {
+          const x = parseFloat(shard.dataset.x) || 0;
+          const y = parseFloat(shard.dataset.y) || 0;
+          const rotation = parseFloat(shard.dataset.rotation) || 0;
+          const scale = parseFloat(shard.dataset.scale) || 1;
+
+          const currentX = x * explosion;
+          const currentY = y * explosion;
+          const currentRotation = rotation * explosion;
+          const currentScale = 1 + (scale - 1) * explosion;
+
+          shard.style.transform = `
+          translate(${currentX}px, ${currentY}px)
+          rotate(${currentRotation}deg)
+          scale(${currentScale})
+        `;
+
+          // Fade out shards that are scaling down
+          if (currentScale < 0.8) {
+            shard.style.opacity = 0.3 + currentScale * 0.5;
+          } else {
+            shard.style.opacity = 1;
+          }
+          // Hide scroll prompt after starting to scroll
+          if (progress > 0.02) {
+            scrollPrompt.classList.add("hidden");
+          } else {
+            scrollPrompt.classList.remove("hidden");
+          }
+        });
+
+        // Title reveal
+        const title = document.getElementById("titleOverlay");
+        if (progress > 0.2 && progress < 0.5) {
+          title.style.opacity = Math.min((progress - 0.2) / 0.1, 1);
+        } else if (progress >= 0.5) {
+          title.style.opacity = Math.max(0, 1 - (progress - 0.5) / 0.1);
+        } else {
+          title.style.opacity = 0;
+        }
+
+        // Fade out scene after 60% scroll
+        if (progress > 0.6) {
+          scene.classList.add("faded");
+        } else {
+          scene.classList.remove("faded");
+        }
+      });
     </script>
   </body>
 </html>
