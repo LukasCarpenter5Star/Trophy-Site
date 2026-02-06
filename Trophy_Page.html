@@ -147,6 +147,10 @@
         transition:
           opacity 0.6s,
           transform 0.6s;
+
+        padding: 2rem;
+        background: var(--surface);
+        border-radius: 8px;
       }
 
       section.visible {
@@ -255,6 +259,14 @@
         border-bottom: 2px solid var(--gold);
         transform: rotate(45deg);
         animation: bounce 2s infinite;
+      }
+
+      footer {
+        text-align: center;
+        padding: 3rem 0;
+        margin-top: 4rem;
+        color: var(--text-dim);
+        border-top: 1px solid rgba(218, 165, 32, 0.2);
       }
 
       @keyframes bounce {
