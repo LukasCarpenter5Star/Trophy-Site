@@ -40,6 +40,9 @@
       main {
         position: relative;
         z-index: 20;
+        margin: 100vh auto 0 auto;
+        max-width: 800px;
+        padding: 0 2rem;
       }
 
       .content {
@@ -86,7 +89,6 @@
         background: var(--bg);
         background: linear-gradient(to bottom, #333 0%, var(--bg) 100%);
         color: var(--text);
-        padding: 20px;
         font-family: "Inter", sans-serif;
         line-height: 1.6;
       }
@@ -105,8 +107,9 @@
 
       h2 {
         font-size: 1.5rem;
-        position: relative;
-        left: 20px;
+        margin-bottom: 1.4rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 2px solid rgba(218, 165, 32, 0.3);
       }
 
       header {
@@ -167,6 +170,7 @@
         padding: 1rem;
         text-align: center;
         border-radius: 5px;
+        border: 1px solid rgba(218, 165, 32, 0.2);
         transition: transform 0.3s;
       }
 
@@ -206,6 +210,17 @@
 
       .scroll-runway {
         height: 100vh;
+      }
+
+      .title-overlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        opacity: 0;
+        z-index: 15;
+        pointer-events: none;
       }
 
       .scroll-prompt {
@@ -4335,6 +4350,7 @@
     </div>
 
     <div class="scroll-runway"></div>
+
     <div class="scroll-prompt" id="scrollPrompt">
       <span>Scroll</span>
       <div class="scroll-arrow"></div>
